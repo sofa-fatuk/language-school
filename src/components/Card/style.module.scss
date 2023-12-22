@@ -1,0 +1,74 @@
+.card {
+  height: 325px;
+  width: 453px;
+  background-color: #def1ff;
+  border-radius: 10px;
+  display: flex;
+  padding: 40px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.title {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 29.38px;
+  letter-spacing: 0.26px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours,
+.modules {
+  color: #585858;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.2px;
+  letter-spacing: 0.16px;
+
+  .quantity {
+    color: #333;
+    font-weight: 700;
+  }
+}
+
+.flagImg {
+  height: 50px;
+  width: 50px;
+}
+
+.more {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #8e49a0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.16px;
+  gap: 10px;
+}
+
+.price {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22.6px;
+  letter-spacing: 0.2px;
+}

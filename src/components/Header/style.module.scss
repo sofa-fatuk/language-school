@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+}
+
+.header {
+  margin: 0 auto;
+  max-width: 1920px;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  box-shadow: 0px 0px 4px 0px rgba(120, 37, 141, 0.15);
+}
+
+.headerGroup {
+  display: flex;
+  gap: 55px;
+}
+
+.logo {
+  width: 120px;
+  height: 40px;
+}
+
+.options {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+.options li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.16px;
+  transition: 0.5s;
+}
+
+.options li:hover {
+  color: #8e49a0;
+  transition: 0.5s;
+}
