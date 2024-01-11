@@ -6,6 +6,74 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
+const cards = [
+  {
+    img: "/img/flags/german.svg",
+    title: "Немецкий для начального уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#D5E9F6",
+    // link: "",
+  },
+  {
+    img: "/img/flags/spain.svg",
+    title: "Испанский для среднего уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#FDEDE4",
+
+    // link: "",
+  },
+  {
+    img: "/img/flags/china.svg",
+    title: "Китайский для среднего уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#EFEFFF",
+
+    // link: "",
+  },
+  {
+    img: "/img/flags/german.svg",
+    title: "Немецкий для начального уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#D5E9F6",
+
+    // link: "",
+  },
+  {
+    img: "/img/flags/spain.svg",
+    title: "Испанский для среднего уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#FDEDE4",
+
+    // link: "",
+  },
+  {
+    img: "/img/flags/china.svg",
+    title: "Китайский для среднего уровня",
+    hours: 45,
+    modules: 3,
+    price: 6520,
+    width: 453,
+    color: "#EFEFFF",
+
+    // link: "",
+  },
+];
+
 const SliderCards = () => {
   return (
     <div className={css.cads}>
@@ -18,21 +86,19 @@ const SliderCards = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
+        {cards.map((card) => (
+          <SwiperSlide>
+            <Card
+              img={card.img}
+              title={card.title}
+              hours={card.hours}
+              modules={card.modules}
+              price={card.price}
+              width={card.width}
+              color={card.color}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

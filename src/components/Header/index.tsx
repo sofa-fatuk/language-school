@@ -1,6 +1,8 @@
 import React from "react";
 import css from "./style.module.scss";
 import PurpleButton from "../PurpleButton";
+import Logo from "../Svgs/Logo";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -8,10 +10,12 @@ export const Header = () => {
       <div className={css.header}>
         <div className={css.headerGroup}>
           <div className={css.logo}>
-            <img src="img/logo.svg" alt="" />
+            <Logo fill={"#040404"} />
           </div>
           <div className={css.options}>
-            <li>Курсы</li>
+            <li>
+              <Link to="/courses">Курсы</Link>
+            </li>
             <li>О нас</li>
             <li>Блог</li>
             <li>Еще</li>

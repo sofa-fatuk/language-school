@@ -2,18 +2,34 @@ import React from "react";
 import css from "./style.module.scss";
 import ArrowRight from "../Svgs/ArrowRight";
 
-const Card = () => {
+interface CardProps {
+  // link: string;
+  img: string;
+  title: string;
+  hours: number;
+  modules: number;
+  price: number;
+  width?: number;
+  color: string;
+}
+
+const Card = (props: CardProps) => {
+  const { img, title, hours, modules, price, width, color } = props;
+
   return (
-    <div className={css.card}>
+    <div
+      className={css.card}
+      style={{ width: `${width}px`, backgroundColor: `${color}` }}
+    >
       <div className={css.container}>
-        <img className={css.flagImg} src="img/flags/german.svg" alt="" />
-        <span className={css.title}>Немецкий для начального уровня</span>
+        <img className={css.flagImg} src={img} alt="" />
+        <span className={css.title}>{title}</span>
         <div className={css.plan}>
           <span className={css.hours}>
-            Длительность: <span className={css.quantity}>45 часов</span>
+            Длительность: <span className={css.quantity}>{hours} часов</span>
           </span>
           <span className={css.modules}>
-            Модулей: <span className={css.quantity}>3</span>
+            Модулей: <span className={css.quantity}>{modules}</span>
           </span>
         </div>
 
@@ -22,7 +38,7 @@ const Card = () => {
             <span>Узнать подробнее </span>
             <ArrowRight />
           </div>
-          <div className={css.price}>От 6 520 Р</div>
+          <div className={css.price}>От {price} Р</div>
         </div>
       </div>
     </div>
