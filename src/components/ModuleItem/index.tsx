@@ -1,16 +1,15 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-
 import css from "./style.module.scss";
-import OpenIcon from "../Svgs/OpenIcon";
-import CloseIcon from "../Svgs/CloseIcon";
+import ArrowDown from "../Svgs/ArrowDown";
 
 interface Iprops {
   title: string;
+  lessons: string;
   description: string;
 }
 
-const CollapsiblePanel = (props: Iprops) => {
-  const { title, description } = props;
+const ModuleItem = (props: Iprops) => {
+  const { title, lessons, description } = props;
 
   const [open, setOpen] = useState(true);
   const [elementHeight, setElementHeight] = useState(0);
@@ -27,26 +26,24 @@ const CollapsiblePanel = (props: Iprops) => {
 
   const descriptionHeight = elementHeight || "auto";
 
+  console.log(elementHeight);
+
   return (
     <>
-      <div
-        className={css.item}
-        onClick={updateBlock}
-        style={{
-          background: open ? "#EFEFFF" : "#fff",
-        }}
-      >
+      <div className={css.item} onClick={updateBlock}>
         <div className={css.front}>
           <div className={css.button}>
-            {open ? <CloseIcon /> : <OpenIcon />}
+            <ArrowDown />
           </div>
           <span className={css.title}>{title}</span>
+          <span className={css.lessons}>{lessons}</span>
         </div>
         <div
           className={css.description}
           ref={ref}
           style={{ maxHeight: open ? descriptionHeight : 0 }}
         >
+          {/* <div className={css.line}></div> */}
           <p className={css.text}>{description}</p>
         </div>
       </div>
@@ -54,4 +51,4 @@ const CollapsiblePanel = (props: Iprops) => {
   );
 };
 
-export default CollapsiblePanel;
+export default ModuleItem;

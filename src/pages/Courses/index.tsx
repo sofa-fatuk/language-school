@@ -115,7 +115,7 @@ const Courses = () => {
       <Header />
       {/* <BreadCrumbs /> */}
       <div className={css.layout}>
-        <div className={css.title}>Курсы</div>
+        <h2 className={css.title}>Курсы</h2>
         <div className={css.filters}>
           {languages.map((language) => (
             <FilterItem

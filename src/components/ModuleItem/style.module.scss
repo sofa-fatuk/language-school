@@ -1,0 +1,64 @@
+.item {
+  width: 100%;
+  max-width: 947px;
+  position: relative;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  padding: 24px 27px;
+  background: #f9f9f9;
+  border-radius: 20px;
+  border: 1px solid #efefff;
+  cursor: pointer;
+}
+
+.title {
+  color: #641f76;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+
+.button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  transition: 0.25s ease-in;
+}
+
+.front {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-right: 34px;
+}
+
+.description {
+  overflow: hidden;
+  height: 100%;
+
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+
+.lessons {
+  color: #828282;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+
+.text {
+  border-top: 2px solid #641f76;
+  padding-top: 24px;
+  margin-top: 24px;
+}
