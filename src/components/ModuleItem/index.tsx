@@ -1,15 +1,17 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import css from "./style.module.scss";
 import ArrowDown from "../Svgs/ArrowDown";
+import cn from "classnames";
+import css from "./style.module.scss";
 
 interface Iprops {
   title: string;
   lessons: string;
   description: string;
+  topic: string;
 }
 
 const ModuleItem = (props: Iprops) => {
-  const { title, lessons, description } = props;
+  const { title, topic, lessons, description } = props;
 
   const [open, setOpen] = useState(true);
   const [elementHeight, setElementHeight] = useState(0);
@@ -32,10 +34,13 @@ const ModuleItem = (props: Iprops) => {
     <>
       <div className={css.item} onClick={updateBlock}>
         <div className={css.front}>
-          <div className={css.button}>
+          <div className={cn(css.button, open ? css.open : null)}>
             <ArrowDown />
           </div>
-          <span className={css.title}>{title}</span>
+          <div className={css.title}>
+            <span>{title}</span>
+            <span className={css.topic}> {topic}</span>
+          </div>
           <span className={css.lessons}>{lessons}</span>
         </div>
         <div
@@ -43,7 +48,6 @@ const ModuleItem = (props: Iprops) => {
           ref={ref}
           style={{ maxHeight: open ? descriptionHeight : 0 }}
         >
-          {/* <div className={css.line}></div> */}
           <p className={css.text}>{description}</p>
         </div>
       </div>

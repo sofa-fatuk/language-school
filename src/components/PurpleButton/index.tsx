@@ -1,8 +1,4 @@
-import React, {
-  DetailedHTMLProps,
-  ButtonHTMLAttributes,
-  ReactNode,
-} from "react";
+import React, { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 
 import css from "./style.module.scss";
 

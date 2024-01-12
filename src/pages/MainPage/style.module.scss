@@ -67,7 +67,7 @@
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .title {
@@ -118,7 +118,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .datablock {
@@ -205,7 +205,7 @@
   height: 650px;
   background-blend-mode: saturation;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 104px;
 }

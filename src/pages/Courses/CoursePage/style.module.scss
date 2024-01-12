@@ -5,8 +5,170 @@
   margin: 0 auto;
 }
 
+.coursItem {
+  display: flex;
+  gap: 40px;
+}
+
+.infoBlock {
+  width: 66%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.name {
+  color: #232323;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 54px;
+  letter-spacing: 0.46px;
+  margin: 0;
+}
+
+.title {
+  color: #232323;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 54px;
+  letter-spacing: 0.32px;
+  margin: 0;
+}
+
+.listTitle {
+  color: #641f76;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+}
+
+.item {
+  color: #585858;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  list-style: none;
+  margin-top: 15px;
+}
+
+.subscription {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #efefff;
+}
+
+.level {
+  width: auto;
+  padding: 5px 20px;
+  border-radius: 4px;
+  background: #efefff;
+
+  color: #4f4f4f;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+}
+
 .socials {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.text {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  margin: 0;
+}
+
+.socialsBlock {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.modules {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.formatBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  padding: 40px;
+  width: 100%;
+  max-width: 947px;
+  height: auto;
+  display: flex;
+  gap: 40px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 0px #f7f6fb;
+}
+
+.description {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #232323;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+
+  p {
+    margin: 0;
+    color: #828282;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.feedbacks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.similarCourses {
+  display: flex;
+  gap: 32px;
+}
+
+.registration {
+  margin: 100px 0;
 }

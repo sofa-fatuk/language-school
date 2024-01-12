@@ -3,7 +3,7 @@
   max-width: 947px;
   position: relative;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   padding: 24px 27px;
   background: #f9f9f9;
@@ -19,12 +19,21 @@
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.32px;
+
+  .topic {
+    color: #232323;
+  }
 }
 
 .button {
   position: absolute;
   top: 24px;
   right: 24px;
+  transition: 0.25s ease-in;
+}
+
+.open {
+  transform: translate(0px, -4px) rotate(180deg);
   transition: 0.25s ease-in;
 }
 
