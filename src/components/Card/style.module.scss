@@ -13,11 +13,13 @@
 }
 
 .title {
+  color: #232323;
   font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: 29.38px;
   letter-spacing: 0.26px;
+  text-decoration: none;
 }
 
 .plan {
@@ -61,6 +63,7 @@
   line-height: 24px;
   letter-spacing: 0.16px;
   gap: 10px;
+  text-decoration: none;
 }
 
 .price {

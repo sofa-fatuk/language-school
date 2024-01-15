@@ -3,22 +3,20 @@
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
-}
-
-.coursItem {
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
 }
 
 .infoBlock {
-  max-width: 66%; //правка
+  max-width: 59%; //правка
+  margin-bottom: 165px;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-bottom: 50px;
+  gap: 30px; //правка
+  margin-bottom: 57px;
 }
 
 .name {
@@ -31,34 +29,24 @@
   margin: 0;
 }
 
-.title {
-  color: #232323;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 54px;
-  letter-spacing: 0.32px;
-  margin: 0;
-}
-
-.listTitle {
-  color: #641f76;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0.2px;
-}
-
-.item {
-  color: #585858;
+.date {
+  color: #2e90d1;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.32px;
-  list-style: none;
-  margin-top: 15px;
+  margin: 0;
+}
+
+.description {
+  color: #585858;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.32px;
+  margin: 0;
 }
 
 .subscription {
@@ -105,74 +93,30 @@
   align-items: center;
 }
 
-.modules {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.formatBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.card {
-  padding: 40px;
-  width: 100%;
-  max-width: 947px;
-  height: auto;
-  display: flex;
-  gap: 40px;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0px 4px 20px 0px #f7f6fb;
-}
-
-.description {
-  display: flex;
-  // align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #232323;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 32px;
-
-  p {
-    margin: 0;
-    color: #828282;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0.32px;
-  }
-}
-
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.feedbacks {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.title {
+  color: #232323;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 0;
 }
 
-.similarCourses {
+.news {
+  margin-top: 40px;
   display: flex;
+  flex-direction: column;
   gap: 32px;
 }
 
-.registration {
-  margin: 50px 0 100px;
-}
-
-.rating {
-  margin-top: 50px;
+.image {
+  height: 383px;
+  width: 452px;
+  background-image: url("../news-picture.png");
 }

@@ -12,6 +12,7 @@ import Card from "../../../components/Card";
 import CardPrice from "../../../components/CardPrice";
 import RegistrationBlock from "../../../components/RegistrationBlock";
 import Footer from "../../../components/Footer";
+import TopStudents from "../../../components/TopStudents";
 
 const modules = [
   {
@@ -81,8 +82,7 @@ const similarCourses = [
     price: 6520,
     width: 458,
     color: "#D5E9F6",
-
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/spain.svg",
@@ -92,8 +92,7 @@ const similarCourses = [
     price: 6520,
     width: 458,
     color: "#FDEDE4",
-
-    // link: "",
+    link: "/courses/course-page",
   },
 ];
 
@@ -208,6 +207,7 @@ const CoursePage = () => {
                     price={card.price}
                     width={card.width}
                     color={card.color}
+                    link={card.link}
                   />
                 ))}
               </div>
@@ -224,7 +224,9 @@ const CoursePage = () => {
                 expertHours={card.expertHours}
               />
             ))}
-            <div className={css.rating}></div>
+            <div className={css.rating}>
+              <TopStudents />
+            </div>
           </div>
         </div>
         <div className={css.registration}>

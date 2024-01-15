@@ -12,9 +12,38 @@ import BriefcaseIcon from "../../components/Svgs/BriefcaseIcon";
 import ShipIcon from "../../components/Svgs/ShipIcon";
 import FeedbackCard from "../../components/FeedbackCard";
 import RegistrationBlock from "../../components/RegistrationBlock";
-import SpecialNews from "../../components/SpecialNews";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
+import NewsCard from "../../components/NewsCard";
+
+const news = [
+  {
+    title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+    date: "05-06-2022",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
+    type: "Новость",
+    link: "/",
+  },
+  {
+    title:
+      "“Интерактивная платформа: как это работает?” Отвечает основатель проекта...",
+    date: "05-06-2022",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
+    type: "Новость",
+    link: "/",
+  },
+  {
+    title:
+      "Новое слово в изучении иностранных языков: интерактивная платформа ...",
+    date: "05-06-2022",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
+    type: "Новость",
+    link: "/",
+  },
+];
 
 const MainPage = () => {
   return (
@@ -208,7 +237,23 @@ const MainPage = () => {
           </div>
         </div>
         <RegistrationBlock />
-        <SpecialNews />
+        <div className={css.blockNews}>
+          <div className={css.container}>
+            <h2 className={css.title}>Полезные новости и статьи</h2>
+            <WhiteButton value="Все новости" />
+          </div>
+          <div className={css.news}>
+            {news.map((item) => (
+              <NewsCard
+                title={item.title}
+                date={item.date}
+                description={item.description}
+                type={item.type}
+                link={item.link}
+              />
+            ))}
+          </div>
+        </div>
         <div className={css.questionsBlock}>
           <div className={css.name}>
             <h2 className={css.title}>Отвечаем на частые вопросы</h2>

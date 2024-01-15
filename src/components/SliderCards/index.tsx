@@ -15,7 +15,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#D5E9F6",
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/spain.svg",
@@ -25,8 +25,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#FDEDE4",
-
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/china.svg",
@@ -36,8 +35,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#EFEFFF",
-
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/german.svg",
@@ -47,8 +45,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#D5E9F6",
-
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/spain.svg",
@@ -58,8 +55,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#FDEDE4",
-
-    // link: "",
+    link: "/courses/course-page",
   },
   {
     img: "/img/flags/china.svg",
@@ -69,8 +65,7 @@ const cards = [
     price: 6520,
     width: 453,
     color: "#EFEFFF",
-
-    // link: "",
+    link: "/courses/course-page",
   },
 ];
 
@@ -96,6 +91,7 @@ const SliderCards = () => {
               price={card.price}
               width={card.width}
               color={card.color}
+              link={card.link}
             />
           </SwiperSlide>
         ))}

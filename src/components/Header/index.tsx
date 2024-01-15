@@ -9,15 +9,17 @@ export const Header = () => {
     <div className={css.container}>
       <div className={css.header}>
         <div className={css.headerGroup}>
-          <div className={css.logo}>
+          <Link className={css.logo} to="/">
             <Logo fill={"#040404"} />
-          </div>
+          </Link>
           <div className={css.options}>
             <li>
               <Link to="/courses">Курсы</Link>
             </li>
             <li>О нас</li>
-            <li>Блог</li>
+            <li>
+              <Link to="/blog">Блог</Link>
+            </li>
             <li>Еще</li>
           </div>
         </div>

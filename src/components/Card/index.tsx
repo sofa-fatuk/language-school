@@ -1,9 +1,10 @@
 import React from "react";
 import css from "./style.module.scss";
 import ArrowRight from "../Svgs/ArrowRight";
+import { Link } from "react-router-dom";
 
 interface CardProps {
-  // link: string;
+  link: string;
   img: string;
   title: string;
   hours: number;
@@ -14,7 +15,7 @@ interface CardProps {
 }
 
 const Card = (props: CardProps) => {
-  const { img, title, hours, modules, price, width, color } = props;
+  const { img, link, title, hours, modules, price, width, color } = props;
 
   return (
     <div
@@ -35,7 +36,9 @@ const Card = (props: CardProps) => {
 
         <div className={css.more}>
           <div className={css.link}>
-            <span>Узнать подробнее </span>
+            <Link to={link} className={css.link}>
+              Узнать подробнее
+            </Link>
             <ArrowRight />
           </div>
           <div className={css.price}>От {price} Р</div>

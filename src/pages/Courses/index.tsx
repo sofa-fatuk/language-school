@@ -7,31 +7,27 @@ import Card from "../../components/Card";
 import Checkbox from "../../components/Checkbox";
 import Footer from "../../components/Footer";
 
-const languages = [
+const filters = [
   {
-    id: "1",
     name: "Все",
   },
   {
-    id: "2",
     name: "Китайский",
   },
   {
-    id: "3",
     name: "Английский",
   },
   {
-    id: "4",
     name: "Немецкий",
   },
   {
-    id: "5",
     name: "Испанский",
   },
 ];
 
 const cards = [
   {
+    id: "1",
     img: "/img/flags/german.svg",
     title: "Немецкий для начального уровня",
     hours: 45,
@@ -40,9 +36,10 @@ const cards = [
     width: 514,
     color: "#D5E9F6",
 
-    // link: "",
+    // link: "/courses/course-page",
   },
   {
+    id: "2",
     img: "/img/flags/spain.svg",
     title: "Испанский для среднего уровня",
     hours: 45,
@@ -51,9 +48,10 @@ const cards = [
     width: 514,
     color: "#FDEDE4",
 
-    // link: "",
+    // link: "/courses/course-page",
   },
   {
+    id: "3",
     img: "/img/flags/china.svg",
     title: "Китайский для среднего уровня",
     hours: 45,
@@ -62,7 +60,7 @@ const cards = [
     width: 514,
     color: "#EFEFFF",
 
-    // link: "",
+    // link: "/courses/course-page",
   },
 ];
 
@@ -77,7 +75,8 @@ const Courses = () => {
     "Путешествие",
   ];
 
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [activeFilters, setActiveFilters] = useState<number[]>([]);
+
   const [choose, setChoose] = useState(
     Object.fromEntries(checkboxLevel.map((title) => [title, false]))
   );
@@ -89,26 +88,18 @@ const Courses = () => {
     }));
   };
 
-  // const onClickFilter = (ids: string[] | null, toggleAll: boolean) => {
-  //   setActiveFilters(
-  //     toggleAll
-  //       ? activeFilters.length === languages.length
-  //         ? []
-  //         : languages.map((language) => language.id)
-  //       : ids || []
-  //   );
-  // };
-
-  const onClickFilter = (ids: string[] | null, toggleAll: boolean) => {
+  const onClickFilter = (index: number, toggleAll: boolean) => {
     setActiveFilters((prevFilters) => {
-      return toggleAll
-        ? prevFilters.length === languages.length
+      if (toggleAll) {
+        return prevFilters.length === filters.length
           ? []
-          : languages.map((language) => language.id)
-        : ids || [];
+          : filters.map((filter, index) => index);
+      }
+      return [index];
     });
-    console.log(activeFilters);
   };
+
+  console.log(activeFilters);
 
   return (
     <>
@@ -117,12 +108,13 @@ const Courses = () => {
       <div className={css.layout}>
         <h2 className={css.title}>Курсы</h2>
         <div className={css.filters}>
-          {languages.map((language) => (
+          {filters.map((item, index) => (
             <FilterItem
-              key={language.id}
-              language={language}
-              active={activeFilters.includes(language.id)}
+              key={index}
+              filter={item}
+              active={activeFilters.includes(index)}
               onClick={onClickFilter}
+              index={index}
             />
           ))}
         </div>
@@ -137,6 +129,7 @@ const Courses = () => {
                 price={card.price}
                 width={card.width}
                 color={card.color}
+                link={`/courses/${card.id}`} //правка
               />
             ))}
           </div>

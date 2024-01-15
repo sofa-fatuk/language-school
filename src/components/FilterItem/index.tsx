@@ -3,27 +3,25 @@ import cn from "classnames";
 
 import css from "./style.module.scss";
 
-interface Language {
-  id: string;
+interface Filter {
   name: string;
 }
 
 interface FilterItemProps {
-  language: Language;
+  filter: Filter;
   active: boolean;
-  onClick: (ids: string[] | null, toggleAll: boolean) => void;
+  onClick: (index: number, toggleAll: boolean) => void;
+  index: number;
 }
 
 const FilterItem = (props: FilterItemProps) => {
-  const { language, active, onClick } = props;
+  const { filter, active, onClick, index } = props;
   return (
     <div
       className={cn(css.filter, active ? css.active : null)}
-      onClick={() =>
-        onClick(language.id === "1" ? null : [language.id], language.id === "1")
-      }
+      onClick={() => onClick(index, index === 0)}
     >
-      {language.name}
+      {filter.name}
     </div>
   );
 };
