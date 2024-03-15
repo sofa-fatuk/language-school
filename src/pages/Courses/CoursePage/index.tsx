@@ -13,6 +13,7 @@ import CardPrice from "../../../components/CardPrice";
 import RegistrationBlock from "../../../components/RegistrationBlock";
 import Footer from "../../../components/Footer";
 import TopStudents from "../../../components/TopStudents";
+import BreadCrumbs from "../../../components/BreadCrumbs";
 
 const modules = [
   {
@@ -112,6 +113,13 @@ const CoursePage = () => {
     <>
       <Header />
       <div className={css.layout}>
+        <BreadCrumbs
+          items={[
+            { path: "/", breadcrumb: "Главная" },
+            { path: "/courses", breadcrumb: "Курсы" },
+            { path: "/courses/course-page", breadcrumb: "Курс подробно" }, //правка id
+          ]}
+        />
         <div className={css.coursItem}>
           <div className={css.infoBlock}>
             <div className={css.wrapper}>

@@ -6,6 +6,10 @@ import css from "./style.module.scss";
 import Card from "../../components/Card";
 import Checkbox from "../../components/Checkbox";
 import Footer from "../../components/Footer";
+import BreadCrumbs from "../../components/BreadCrumbs";
+
+import { getCourses } from "../../api/courses";
+import { useQuery } from "@tanstack/react-query";
 
 const filters = [
   {
@@ -25,44 +29,44 @@ const filters = [
   },
 ];
 
-const cards = [
-  {
-    id: "1",
-    img: "/img/flags/german.svg",
-    title: "Немецкий для начального уровня",
-    hours: 45,
-    modules: 3,
-    price: 6520,
-    width: 514,
-    color: "#D5E9F6",
+// const cards = [
+//   {
+//     id: "1",
+//     img: "/img/flags/german.svg",
+//     title: "Немецкий для начального уровня",
+//     hours: 45,
+//     modules: 3,
+//     price: 6520,
+//     width: 514,
+//     color: "#D5E9F6",
 
-    // link: "/courses/course-page",
-  },
-  {
-    id: "2",
-    img: "/img/flags/spain.svg",
-    title: "Испанский для среднего уровня",
-    hours: 45,
-    modules: 3,
-    price: 6520,
-    width: 514,
-    color: "#FDEDE4",
+//     // link: "/courses/course-page",
+//   },
+//   {
+//     id: "2",
+//     img: "/img/flags/spain.svg",
+//     title: "Испанский для среднего уровня",
+//     hours: 45,
+//     modules: 3,
+//     price: 6520,
+//     width: 514,
+//     color: "#FDEDE4",
 
-    // link: "/courses/course-page",
-  },
-  {
-    id: "3",
-    img: "/img/flags/china.svg",
-    title: "Китайский для среднего уровня",
-    hours: 45,
-    modules: 3,
-    price: 6520,
-    width: 514,
-    color: "#EFEFFF",
+//     // link: "/courses/course-page",
+//   },
+//   {
+//     id: "3",
+//     img: "/img/flags/china.svg",
+//     title: "Китайский для среднего уровня",
+//     hours: 45,
+//     modules: 3,
+//     price: 6520,
+//     width: 514,
+//     color: "#EFEFFF",
 
-    // link: "/courses/course-page",
-  },
-];
+//     // link: "/courses/course-page",
+//   },
+// ];
 
 const Courses = () => {
   const checkboxLevel = ["Начальный", "Средний", "Высокий"];
@@ -80,6 +84,11 @@ const Courses = () => {
   const [choose, setChoose] = useState(
     Object.fromEntries(checkboxLevel.map((title) => [title, false]))
   );
+
+  const { data: courses = [] } = useQuery({
+    queryKey: ["courses"],
+    queryFn: getCourses,
+  });
 
   const onCheck = (title: string) => {
     setChoose((prevStates) => ({
@@ -104,8 +113,13 @@ const Courses = () => {
   return (
     <>
       <Header />
-      {/* <BreadCrumbs /> */}
       <div className={css.layout}>
+        <BreadCrumbs
+          items={[
+            { path: "/", breadcrumb: "Главная" },
+            { path: "/courses", breadcrumb: "Курсы" },
+          ]}
+        />
         <h2 className={css.title}>Курсы</h2>
         <div className={css.filters}>
           {filters.map((item, index) => (
@@ -120,16 +134,16 @@ const Courses = () => {
         </div>
         <div className={css.courses}>
           <div className={css.cards}>
-            {cards.map((card) => (
+            {courses.map((item) => (
               <Card
-                img={card.img}
-                title={card.title}
-                hours={card.hours}
-                modules={card.modules}
-                price={card.price}
-                width={card.width}
-                color={card.color}
-                link={`/courses/${card.id}`} //правка
+                img={item.img}
+                title={item.title}
+                hours={item.hours}
+                modules={item.modules}
+                price={item.price}
+                width={item.width}
+                color={item.color}
+                link={`/courses/${item.id}`} //правка
               />
             ))}
           </div>

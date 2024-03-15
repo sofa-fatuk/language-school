@@ -5,6 +5,7 @@ import FilterItem from "../../components/FilterItem";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
 import PurpleButton from "../../components/PurpleButton";
+import BreadCrumbs from "../../components/BreadCrumbs";
 
 const filters = [
   {
@@ -36,6 +37,12 @@ const FAQ = () => {
     <>
       <Header />
       <div className={css.layout}>
+        <BreadCrumbs
+          items={[
+            { path: "/", breadcrumb: "Главная" },
+            { path: "/questions", breadcrumb: "FAQ" },
+          ]}
+        />
         <h2 className={css.title}>FAQ</h2>
         <p className={css.subtitle}>Часто задаваемые вопросы</p>
         <div className={css.filters}>

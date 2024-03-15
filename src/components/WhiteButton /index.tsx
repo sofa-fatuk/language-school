@@ -1,8 +1,4 @@
-import React, {
-  DetailedHTMLProps,
-  ButtonHTMLAttributes,
-  ReactNode,
-} from "react";
+import React, { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 
 import css from "./style.module.scss";
 
@@ -13,7 +9,7 @@ interface Iprops
   > {}
 
 function WhiteButton(props: Iprops) {
-  const { value, onClick, type, color } = props;
+  const { value, onClick, type } = props;
 
   return (
     <button className={css.button} type={type} onClick={onClick}>

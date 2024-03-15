@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^5.17.19",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +12,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "classnames": "^2.5.1",
+    "json-server": "^1.0.0-alpha.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
@@ -26,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server -w mock/db.json -p 3030"
   },
   "eslintConfig": {
     "extends": [

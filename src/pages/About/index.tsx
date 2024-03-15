@@ -5,12 +5,19 @@ import css from "./style.module.scss";
 import cn from "classnames";
 import RegistrationBlock from "../../components/RegistrationBlock";
 import Footer from "../../components/Footer";
+import BreadCrumbs from "../../components/BreadCrumbs";
 
 const About = () => {
   return (
     <>
       <Header />
       <div className={css.layout}>
+        <BreadCrumbs
+          items={[
+            { path: "/", breadcrumb: "Главная" },
+            { path: "/blog", breadcrumb: "О нас" },
+          ]}
+        />
         <h2 className={css.title}>О нас</h2>
         <p className={css.subtitle}>Говори легко - живи свободно!</p>
         <div className={css.blockInformation}>
