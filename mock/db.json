@@ -39,6 +39,26 @@
       "price": 6520,
       "width": 514,
       "color": "#D5E9F6"
+    },
+    {
+      "id": 5,
+      "img": "/img/flags/german.svg",
+      "title": "Китайский для среднего уровня",
+      "hours": 45,
+      "modules": 3,
+      "price": 6520,
+      "width": 514,
+      "color": "#EFEFFF"
+    },
+    {
+      "id": 6,
+      "img": "/img/flags/german.svg",
+      "title": "Испанский для начального уровня",
+      "hours": 45,
+      "modules": 3,
+      "price": 6520,
+      "width": 514,
+      "color": "#FDEDE4"
     }
   ],
   "news": [
