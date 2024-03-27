@@ -1,0 +1,73 @@
+.authPage {
+  width: fit-content;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 45px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  width: 490px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 40px;
+}
+
+.logo {
+  margin-left: 40px;
+}
+
+.title {
+  margin: 0;
+  color: #232323;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 51.98px;
+  letter-spacing: 1%;
+}
+
+.subtitle {
+  margin: 17px 0 30px;
+  color: #828282;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.phone {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.submit {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.splitter {
+  color: #bdbdbd;
+}
+
+// .splitter::before {
+//   content: "";
+//   width: 156.5px;
+//   height: 3px;
+//   color: red;
+// }
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}

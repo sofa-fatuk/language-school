@@ -5,7 +5,7 @@ import FacebookIcon from "../../../components/Svgs/FacebookIcon";
 import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
 import TwitIcon from "../../../components/Svgs/TwitIcon";
 import VkIcon from "../../../components/Svgs/VkIcon";
-import WhiteButton from "../../../components/WhiteButton ";
+import LinkButton from "../../../components/LinkButton";
 import NewsCard from "../../../components/NewsCard";
 import Footer from "../../../components/Footer";
 import BreadCrumbs from "../../../components/BreadCrumbs";
@@ -74,7 +74,7 @@ const BlogPage = () => {
 
             <div className={css.container}>
               <h3 className={css.title}>Другие новости</h3>
-              <WhiteButton value="Все новости" />
+              <LinkButton value="Все новости" />
             </div>
             <div className={css.news}>
               {news.map((item) => (

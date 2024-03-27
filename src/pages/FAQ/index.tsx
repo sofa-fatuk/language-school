@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import FilterItem from "../../components/FilterItem";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
-import PurpleButton from "../../components/PurpleButton";
+import LinkButton from "../../components/LinkButton";
 import BreadCrumbs from "../../components/BreadCrumbs";
 
 const filters = [
@@ -85,7 +85,9 @@ const FAQ = () => {
               Свяжитесь с нашей командой поддержки <br /> студентов по любым
               вопросам.
             </p>
-            <PurpleButton value="Задать вопрос" />
+            <div className={css.button}>
+              <LinkButton value="Задать вопрос" style="primary" />
+            </div>
           </div>
         </div>
       </div>

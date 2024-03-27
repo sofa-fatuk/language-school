@@ -43,8 +43,6 @@ const Blog = () => {
     });
   };
 
-  console.log(activeFilters);
-
   return (
     <>
       <Header />

@@ -2,11 +2,20 @@ import React from "react";
 import css from "./style.module.scss";
 import StarIcon from "../Svgs/StarIcon";
 
-const FeedbackCard = () => {
+interface CardProps {
+  name: string;
+  feedback: string;
+  color: string;
+  // stars: number
+}
+
+const FeedbackCard = (props: CardProps) => {
+  const { name, feedback, color } = props;
+
   return (
-    <div className={css.feedback}>
+    <div className={css.feedback} style={{ backgroundColor: `${color}` }}>
       <div className={css.title}>
-        <span className={css.name}>Артем М.</span>
+        <span className={css.name}>{name}</span>
         <div className={css.stars}>
           <StarIcon />
           <StarIcon />
@@ -15,13 +24,7 @@ const FeedbackCard = () => {
           <StarIcon />
         </div>
       </div>
-      <div className={css.text}>
-        Занятия курса очень понравились, в основном благодаря необычной системе
-        — я человек настроения и не могу подстраиваться под график
-        индивидуального репетитора или тем более целой группы. Иногда занимался
-        несколько часов подряд — настолько легко и интересно организована подача
-        материала, а один раз по болезни пропустил целую неделю.
-      </div>
+      <div className={css.text}>{feedback}</div>
     </div>
   );
 };

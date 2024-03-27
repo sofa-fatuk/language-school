@@ -8,6 +8,10 @@
   margin: 100px auto;
 }
 
+.button {
+  width: fit-content;
+}
+
 .info {
   display: flex;
   justify-content: center;
@@ -53,6 +57,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  opacity: 0.6;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.watchVideo:hover {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .watchVideo span {
@@ -246,13 +258,7 @@
 
 .innerFeedback {
   width: 700px;
-  display: flex;
-  align-items: center;
-}
-
-.news {
-  display: flex;
-  gap: 40px;
+  margin-top: 33px;
 }
 
 .questionsBlock {

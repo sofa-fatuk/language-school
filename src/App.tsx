@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SignUp from "./pages/SignUp";
 import Courses from "./pages/Courses";
@@ -8,6 +8,17 @@ import Blog from "./pages/Blog";
 import BlogPage from "./pages/Blog/BlogPage";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
+
+//вынести в нов компонент
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
   return (
@@ -23,6 +34,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<div>Error</div>} />
       </Routes>
+      <ScrollToTop />
     </BrowserRouter>
   );
 };

@@ -19,3 +19,14 @@ export const getNews = async (): Promise<News[]> => {
   }
   return response.json();
 };
+
+export const getRecommendedNews = async (): Promise<News[]> => {
+  const url = `${API_URL}/newsRecommended`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Network error: ${response.status}`);
+  }
+  return response.json();
+};

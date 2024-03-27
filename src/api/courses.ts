@@ -21,3 +21,14 @@ export const getCourses = async (): Promise<Course[]> => {
   }
   return response.json();
 };
+
+export const getRecommendedCourses = async (): Promise<Course[]> => {
+  const url = `${API_URL}/coursesRecommended`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Network error: ${response.status}`);
+  }
+  return response.json();
+};

@@ -29,45 +29,6 @@ const filters = [
   },
 ];
 
-// const cards = [
-//   {
-//     id: "1",
-//     img: "/img/flags/german.svg",
-//     title: "Немецкий для начального уровня",
-//     hours: 45,
-//     modules: 3,
-//     price: 6520,
-//     width: 514,
-//     color: "#D5E9F6",
-
-//     // link: "/courses/course-page",
-//   },
-//   {
-//     id: "2",
-//     img: "/img/flags/spain.svg",
-//     title: "Испанский для среднего уровня",
-//     hours: 45,
-//     modules: 3,
-//     price: 6520,
-//     width: 514,
-//     color: "#FDEDE4",
-
-//     // link: "/courses/course-page",
-//   },
-//   {
-//     id: "3",
-//     img: "/img/flags/china.svg",
-//     title: "Китайский для среднего уровня",
-//     hours: 45,
-//     modules: 3,
-//     price: 6520,
-//     width: 514,
-//     color: "#EFEFFF",
-
-//     // link: "/courses/course-page",
-//   },
-// ];
-
 const Courses = () => {
   const checkboxLevel = ["Начальный", "Средний", "Высокий"];
   const checkboxPurposes = [

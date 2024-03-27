@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./style.module.scss";
-import PurpleButton from "../PurpleButton";
+import LinkButton from "../LinkButton";
 import Logo from "../Svgs/Logo";
 import { Link } from "react-router-dom";
 
@@ -13,17 +13,26 @@ export const Header = () => {
             <Logo fill={"#040404"} />
           </Link>
           <div className={css.options}>
-            <li>
-              <Link to="/courses">Курсы</Link>
-            </li>
-            <li>О нас</li>
-            <li>
-              <Link to="/blog">Блог</Link>
-            </li>
-            <li>Еще</li>
+            <Link to="/courses" className={css.link}>
+              Курсы
+            </Link>
+            <Link to="/about" className={css.link}>
+              О нас
+            </Link>
+            <Link to="/blog" className={css.link}>
+              Блог
+            </Link>
+            <Link to="/" className={css.link}>
+              Еще
+            </Link>
           </div>
         </div>
-        <PurpleButton value="Войти" type="submit" />
+        <LinkButton
+          link="/sign-up"
+          value="Войти"
+          type="submit"
+          style="primary"
+        />
       </div>
     </div>
   );

@@ -1,0 +1,46 @@
+.container {
+  & > * {
+    cursor: pointer;
+  }
+}
+
+.container input {
+  opacity: 0;
+  position: absolute;
+}
+
+.container label {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #6f706f;
+}
+
+.checkbox,
+.checkboxActive {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+//правка, есть странный отступ, а из-за падинга текст немного есздит
+.checkbox::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 1px solid #bb92c6;
+  border-radius: 4px;
+  padding-right: 22px;
+}
+
+.checkboxActive::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  padding-right: 24px;
+  background-image: url("./check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}

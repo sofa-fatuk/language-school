@@ -1,22 +1,21 @@
 import React, { useRef, useState } from "react";
 import css from "./style.module.scss";
-import Card from "../Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import SwiperInstance from "swiper";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
 import { useQuery } from "@tanstack/react-query";
-import { getRecommendedCourses } from "../../api/courses";
+import FeedbackCard from "../FeedbackCard";
+import { getFeedbacks } from "../../api/feedbacks";
 
 SwiperCore.use([]);
 
-const SliderCards = () => {
-  const { data: courses = [] } = useQuery({
-    queryKey: ["courses"],
-    queryFn: getRecommendedCourses,
+const SliderFeedback = () => {
+  const { data: feedbacks = [] } = useQuery({
+    queryKey: ["feedbacks"],
+    queryFn: getFeedbacks,
   });
 
   const swiper = useRef<SwiperInstance | null>(null);
@@ -46,24 +45,19 @@ const SliderCards = () => {
           }
         }}
         onActiveIndexChange={updateActiveIndex}
-        slidesPerView={3}
-        slidesPerGroup={3}
+        slidesPerView={1}
+        slidesPerGroup={1}
         spaceBetween={30}
         loop
         className="mySwiper"
       >
-        {courses.map((item) => (
+        {feedbacks.map((item) => (
           <SwiperSlide key={item.id}>
             <div className={css.item}>
-              <Card
-                img={item.img}
-                title={item.title}
-                hours={item.hours}
-                modules={item.modules}
-                price={item.price}
-                width={item.width}
+              <FeedbackCard
+                name={item.name}
+                feedback={item.description}
                 color={item.color}
-                link={`/courses/${item.id}`}
               />
             </div>
           </SwiperSlide>
@@ -76,7 +70,7 @@ const SliderCards = () => {
         ></button>
         <button
           className={`${css.next} ${
-            activeIndex === courses.length - 3 ? css.active : ""
+            activeIndex === feedbacks.length - 1 ? css.active : ""
           }`}
           onClick={onClickNext}
         ></button>
@@ -85,4 +79,4 @@ const SliderCards = () => {
   );
 };
 
-export default SliderCards;
+export default SliderFeedback;

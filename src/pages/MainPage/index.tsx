@@ -1,8 +1,7 @@
 import React from "react";
 import css from "./style.module.scss";
 import { Header } from "../../components/Header";
-import PurpleButton from "../../components/PurpleButton";
-import WhiteButton from "../../components/WhiteButton ";
+import LinkButton from "../../components/LinkButton";
 import SliderCards from "../../components/SliderCards";
 import PresentationIcon from "../../components/Svgs/PresentationIcon";
 import MapMarkerIcon from "../../components/Svgs/MapMarkerIcon";
@@ -10,40 +9,11 @@ import CommentIcon from "../../components/Svgs/CommentIcon";
 import CapIcon from "../../components/Svgs/CapIcon";
 import BriefcaseIcon from "../../components/Svgs/BriefcaseIcon";
 import ShipIcon from "../../components/Svgs/ShipIcon";
-import FeedbackCard from "../../components/FeedbackCard";
 import RegistrationBlock from "../../components/RegistrationBlock";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
-import NewsCard from "../../components/NewsCard";
-
-const news = [
-  {
-    title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-    date: "05-06-2022",
-    description:
-      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
-    type: "Новость",
-    link: "/",
-  },
-  {
-    title:
-      "“Интерактивная платформа: как это работает?” Отвечает основатель проекта...",
-    date: "05-06-2022",
-    description:
-      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
-    type: "Новость",
-    link: "/",
-  },
-  {
-    title:
-      "Новое слово в изучении иностранных языков: интерактивная платформа ...",
-    date: "05-06-2022",
-    description:
-      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения. ",
-    type: "Новость",
-    link: "/",
-  },
-];
+import SliderFeedback from "../../components/SliderFeedback";
+import SuggestedNews from "../../components/SuggestedNews";
 
 const MainPage = () => {
   return (
@@ -61,7 +31,7 @@ const MainPage = () => {
               носителей языка
             </span>
             <div className={css.block}>
-              <PurpleButton value="Попробовать бесплатно" />
+              <LinkButton value="Попробовать бесплатно" style="primary" />
               <div className={css.watchVideo}>
                 <img src="img/button-play.svg" alt="" />
                 <span>Посмотреть промо-ролик</span>
@@ -75,7 +45,7 @@ const MainPage = () => {
             <h2 className={css.title}>
               Курсы иностранных языков <br /> для любого уровня
             </h2>
-            <WhiteButton value="Все курсы" />
+            <LinkButton value="Все курсы" link="/courses" />
           </div>
           <div className={css.cards}>
             <SliderCards />
@@ -90,7 +60,9 @@ const MainPage = () => {
               подойдет всем, кто хочет за короткий срок качественно изменить
               свою жизнь, освоив иностранный язык.
             </p>
-            <PurpleButton value="Попробовать бесплатно" />
+            <div className={css.button}>
+              <LinkButton value="Попробовать бесплатно" style="primary" />
+            </div>
           </div>
           <div className={css.innerData}>
             <div className={css.data}>
@@ -227,12 +199,12 @@ const MainPage = () => {
             <h2 className={css.title}>
               Что говорят о нас <br /> ученики?
             </h2>
-            <WhiteButton value="Все отзывы" />
+            <LinkButton value="Все отзывы" />
           </div>
           <div className={css.feedbacksBlock}>
             <img src="/img/feedback-man.png" alt="" />
             <div className={css.innerFeedback}>
-              <FeedbackCard />
+              <SliderFeedback />
             </div>
           </div>
         </div>
@@ -240,25 +212,19 @@ const MainPage = () => {
         <div className={css.blockNews}>
           <div className={css.container}>
             <h2 className={css.title}>Полезные новости и статьи</h2>
-            <WhiteButton value="Все новости" />
+            <LinkButton value="Все новости" link="/blog" />
           </div>
-          <div className={css.news}>
-            {news.map((item) => (
-              <NewsCard
-                title={item.title}
-                date={item.date}
-                description={item.description}
-                type={item.type}
-                link={item.link}
-              />
-            ))}
-          </div>
+          <SuggestedNews />
         </div>
         <div className={css.questionsBlock}>
           <div className={css.name}>
             <h2 className={css.title}>Отвечаем на частые вопросы</h2>
             <div className={css.button}>
-              <PurpleButton value="Задать вопрос" />
+              <LinkButton
+                value="Задать вопрос"
+                link="/questions"
+                style="primary"
+              />
             </div>
             <img src="img/casual-woman.png" alt="" />
           </div>

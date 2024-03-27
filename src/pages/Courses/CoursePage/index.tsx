@@ -6,7 +6,7 @@ import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
 import VkIcon from "../../../components/Svgs/VkIcon";
 import TwitIcon from "../../../components/Svgs/TwitIcon";
 import ModuleItem from "../../../components/ModuleItem";
-import WhiteButton from "../../../components/WhiteButton ";
+import LinkButton from "../../../components/LinkButton";
 import FeedbackCard from "../../../components/FeedbackCard";
 import Card from "../../../components/Card";
 import CardPrice from "../../../components/CardPrice";
@@ -196,11 +196,17 @@ const CoursePage = () => {
             <div className={css.wrapper}>
               <div className={css.container}>
                 <h3 className={css.title}>Отзывы о курсе</h3>
-                <WhiteButton value="Все отзывы" />
+                <LinkButton value="Все отзывы" />
               </div>
               <div className={css.feedbacks}>
-                <FeedbackCard />
-                <FeedbackCard />
+                {/* <FeedbackCard
+                  name="Артем М."
+                  feedback="Занятия курса очень понравились, в основном благодаря необычной системе — я человек настроения и не могу подстраиваться под график индивидуального репетитора или тем более целой группы. Иногда занимался несколько часов подряд — настолько легко и интересно организована подача материала, а один раз по болезни пропустил целую неделю. "
+                />
+                <FeedbackCard
+                  name="Артем М."
+                  feedback="Занятия курса очень понравились, в основном благодаря необычной системе — я человек настроения и не могу подстраиваться под график индивидуального репетитора или тем более целой группы. Иногда занимался несколько часов подряд — настолько легко и интересно организована подача материала, а один раз по болезни пропустил целую неделю. "
+                /> */}
               </div>
             </div>
             <div className={css.wrapper}>

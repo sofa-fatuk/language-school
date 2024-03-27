@@ -5,6 +5,7 @@ import YouTubeIcon from "../Svgs/YouTubeIcon";
 import VkIcon from "../Svgs/VkIcon";
 import TwitIcon from "../Svgs/TwitIcon";
 import Logo from "../Svgs/Logo";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,7 +21,9 @@ const Footer = () => {
         <div className={css.listColumns}>
           <ul className={css.list}>
             <li className={css.title}>Обучение</li>
-            <li className={css.item}>Все языки</li>
+            <li className={css.item}>
+              <Link to="/courses">Все языки</Link>
+            </li>
             <li className={css.item}>Взрослым</li>
             <li className={css.item}>Детям и подросткам</li>
             <li className={css.item}>Мини-курсы</li>
@@ -31,10 +34,16 @@ const Footer = () => {
         <div className={css.listColumns}>
           <ul className={css.list}>
             <li className={css.title}>Информация</li>
-            <li className={css.item}>О нас</li>
+            <li className={css.item}>
+              <Link to="/about">О нас</Link>
+            </li>
             <li className={css.item}>Отзывы</li>
-            <li className={css.item}>Новости</li>
-            <li className={css.item}>Частые вопросы</li>
+            <li className={css.item}>
+              <Link to="/blog">Новости</Link>
+            </li>
+            <li className={css.item}>
+              <Link to="/questions">Частые вопросы</Link>
+            </li>
             <li className={css.item}>Условия оплаты</li>
             <li className={css.item}>Контакты</li>
           </ul>
