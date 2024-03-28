@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/spain.svg",
       "title": "Испанский для начального уровня",
       "hours": 45,
       "modules": 3,
@@ -22,7 +22,7 @@
     },
     {
       "id": 3,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/china.svg",
       "title": "Китайский для среднего уровня",
       "hours": 45,
       "modules": 3,
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/china.svg",
       "title": "Китайский для среднего уровня",
       "hours": 45,
       "modules": 3,
@@ -52,11 +52,41 @@
     },
     {
       "id": 6,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/spain.svg",
       "title": "Испанский для начального уровня",
       "hours": 45,
       "modules": 3,
       "price": 6520,
+      "width": 514,
+      "color": "#FDEDE4"
+    },
+    {
+      "id": 7,
+      "img": "/img/flags/german.svg",
+      "title": "Немецкий для среднего уровня",
+      "hours": 90,
+      "modules": 10,
+      "price": 10000,
+      "width": 514,
+      "color": "#D5E9F6"
+    },
+    {
+      "id": 8,
+      "img": "/img/flags/china.svg",
+      "title": "Китайский для продвинутого уровня",
+      "hours": 70,
+      "modules": 12,
+      "price": 9520,
+      "width": 514,
+      "color": "#EFEFFF"
+    },
+    {
+      "id": 9,
+      "img": "/img/flags/spain.svg",
+      "title": "Испанский для среднего уровня",
+      "hours": 100,
+      "modules": 11,
+      "price": 11520,
       "width": 514,
       "color": "#FDEDE4"
     }
@@ -74,7 +104,7 @@
     },
     {
       "id": 2,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/spain.svg",
       "title": "Испанский для начального уровня",
       "hours": 45,
       "modules": 3,
@@ -84,7 +114,7 @@
     },
     {
       "id": 3,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/china.svg",
       "title": "Китайский для среднего уровня",
       "hours": 45,
       "modules": 3,
@@ -104,7 +134,7 @@
     },
     {
       "id": 5,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/china.svg",
       "title": "Китайский для среднего уровня",
       "hours": 45,
       "modules": 3,
@@ -114,7 +144,7 @@
     },
     {
       "id": 6,
-      "img": "/img/flags/german.svg",
+      "img": "/img/flags/spain.svg",
       "title": "Испанский для начального уровня",
       "hours": 45,
       "modules": 3,

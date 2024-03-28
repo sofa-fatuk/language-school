@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "../../components/Header";
 import FilterItem from "../../components/FilterItem";
-// import BreadCrumbs from "../../components/BreadCrumbs";
 import css from "./style.module.scss";
 import Card from "../../components/Card";
 import Checkbox from "../../components/Checkbox";
@@ -10,6 +9,7 @@ import BreadCrumbs from "../../components/BreadCrumbs";
 
 import { getCourses } from "../../api/courses";
 import { useQuery } from "@tanstack/react-query";
+import PaginatedItems from "../../components/PaginatedItems";
 
 const filters = [
   {
@@ -51,6 +51,21 @@ const Courses = () => {
     queryFn: getCourses,
   });
 
+  const renderItem = (item: any) => {
+    return (
+      <Card
+        img={item.img}
+        title={item.title}
+        hours={item.hours}
+        modules={item.modules}
+        price={item.price}
+        width={item.width}
+        color={item.color}
+        link={`/courses/${item.id}`} //правка
+      />
+    );
+  };
+
   const onCheck = (title: string) => {
     setChoose((prevStates) => ({
       ...prevStates,
@@ -68,8 +83,6 @@ const Courses = () => {
       return [index];
     });
   };
-
-  console.log(activeFilters);
 
   return (
     <>
@@ -95,18 +108,7 @@ const Courses = () => {
         </div>
         <div className={css.courses}>
           <div className={css.cards}>
-            {courses.map((item) => (
-              <Card
-                img={item.img}
-                title={item.title}
-                hours={item.hours}
-                modules={item.modules}
-                price={item.price}
-                width={item.width}
-                color={item.color}
-                link={`/courses/${item.id}`} //правка
-              />
-            ))}
+            <PaginatedItems renderItem={renderItem} items={courses} />
           </div>
           <div className={css.morefilters}>
             <div className={css.level}>

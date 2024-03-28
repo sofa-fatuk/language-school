@@ -54,16 +54,40 @@
   margin-bottom: 20px;
 }
 
-.splitter {
-  color: #bdbdbd;
+// правка, исправить во всех стилях на scss и добавить глобальные переменные
+
+$dividerHeight: 16px;
+$dividerLineHeight: 1px;
+$dividerLineTop: calc(($dividerHeight / 2) - ($dividerLineHeight / 2));
+
+.divider {
+  width: 100%;
+  height: $dividerHeight;
+  position: relative;
 }
 
-// .splitter::before {
-//   content: "";
-//   width: 156.5px;
-//   height: 3px;
-//   color: red;
-// }
+.divider::before {
+  content: "";
+  width: 100%;
+  height: $dividerLineHeight;
+  background-color: #bdbdbd;
+  display: block;
+  position: absolute;
+  top: $dividerLineTop;
+}
+
+.dividerText {
+  color: #bdbdbd;
+  display: flex;
+  background-color: white;
+  width: fit-content;
+  height: 16px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+  z-index: 1;
+  position: relative;
+}
 
 .socials {
   display: flex;

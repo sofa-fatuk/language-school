@@ -46,7 +46,9 @@ const SignUp = () => {
               />
             </div>
 
-            <div className={css.splitter}>или</div>
+            <div className={css.divider}>
+              <div className={css.dividerText}>или</div>
+            </div>
             <div className={css.socials}>
               <SocialButton
                 Icon={<GosuslugiIcon />}
