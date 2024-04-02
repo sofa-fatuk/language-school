@@ -14,6 +14,8 @@ import RegistrationBlock from "../../../components/RegistrationBlock";
 import Footer from "../../../components/Footer";
 import TopStudents from "../../../components/TopStudents";
 import BreadCrumbs from "../../../components/BreadCrumbs";
+import { useQuery } from "@tanstack/react-query";
+import { getFeedbacks } from "../../../api/feedbacks";
 
 const modules = [
   {
@@ -109,6 +111,11 @@ const courseCost = [
 ];
 
 const CoursePage = () => {
+  const { data: feedbacks = [] } = useQuery({
+    queryKey: ["feedbacks"],
+    queryFn: getFeedbacks,
+  });
+
   return (
     <>
       <Header />
@@ -199,14 +206,14 @@ const CoursePage = () => {
                 <LinkButton value="Все отзывы" />
               </div>
               <div className={css.feedbacks}>
-                {/* <FeedbackCard
-                  name="Артем М."
-                  feedback="Занятия курса очень понравились, в основном благодаря необычной системе — я человек настроения и не могу подстраиваться под график индивидуального репетитора или тем более целой группы. Иногда занимался несколько часов подряд — настолько легко и интересно организована подача материала, а один раз по болезни пропустил целую неделю. "
-                />
-                <FeedbackCard
-                  name="Артем М."
-                  feedback="Занятия курса очень понравились, в основном благодаря необычной системе — я человек настроения и не могу подстраиваться под график индивидуального репетитора или тем более целой группы. Иногда занимался несколько часов подряд — настолько легко и интересно организована подача материала, а один раз по болезни пропустил целую неделю. "
-                /> */}
+                {feedbacks.map((item) => (
+                  <FeedbackCard
+                    name={item.name}
+                    feedback={item.description}
+                    color={item.color}
+                    stars={item.stars}
+                  />
+                ))}
               </div>
             </div>
             <div className={css.wrapper}>
@@ -219,7 +226,7 @@ const CoursePage = () => {
                     hours={card.hours}
                     modules={card.modules}
                     price={card.price}
-                    width={card.width}
+                    width={457.5}
                     color={card.color}
                     link={card.link}
                   />

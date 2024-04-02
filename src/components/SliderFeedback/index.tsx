@@ -58,6 +58,7 @@ const SliderFeedback = () => {
                 name={item.name}
                 feedback={item.description}
                 color={item.color}
+                stars={item.stars}
               />
             </div>
           </SwiperSlide>

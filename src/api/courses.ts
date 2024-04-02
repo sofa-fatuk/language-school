@@ -1,4 +1,5 @@
 import { API_URL } from "./constants";
+import { QueryFunctionContext } from "@tanstack/react-query";
 
 interface Course {
   id: string;
@@ -11,9 +12,10 @@ interface Course {
   color: string;
 }
 
-export const getCourses = async (): Promise<Course[]> => {
-  const url = `${API_URL}/courses`;
-
+export const getCourses = async (
+  context: QueryFunctionContext<string[]>
+): Promise<Course[]> => {
+  const url = `${API_URL}/courses${context.queryKey[1]}`;
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -24,7 +26,6 @@ export const getCourses = async (): Promise<Course[]> => {
 
 export const getRecommendedCourses = async (): Promise<Course[]> => {
   const url = `${API_URL}/coursesRecommended`;
-
   const response = await fetch(url);
 
   if (!response.ok) {

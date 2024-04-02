@@ -274,3 +274,11 @@
 .questions > * {
   margin-bottom: 30px;
 }
+
+@media (max-width: 1440px) {
+  .info {
+    img {
+      display: none;
+    }
+  }
+}

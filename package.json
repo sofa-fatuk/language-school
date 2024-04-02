@@ -12,7 +12,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "classnames": "^2.5.1",
-    "json-server": "^1.0.0-alpha.22",
+    "json-server": "github:typicode/json-server#v0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -w mock/db.json -p 3030"
+    "server": "json-server -w mock/index.js -p 3030"
   },
   "eslintConfig": {
     "extends": [

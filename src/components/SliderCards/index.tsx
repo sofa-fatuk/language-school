@@ -61,7 +61,7 @@ const SliderCards = () => {
                 hours={item.hours}
                 modules={item.modules}
                 price={item.price}
-                width={item.width}
+                width={453}
                 color={item.color}
                 link={`/courses/${item.id}`}
               />

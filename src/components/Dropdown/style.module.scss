@@ -1,0 +1,47 @@
+.item {
+  width: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.front {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  right: -30px;
+  transition: 0.25s ease-in;
+}
+
+.open {
+  transform: translate(0px, -4px) rotate(180deg);
+  transition: 0.25s ease-in;
+}
+
+.description {
+  width: 100px;
+  overflow: hidden;
+  height: 100%;
+
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  background-color: red;
+}
+
+.text {
+  border-top: 2px solid #641f76;
+  padding-top: 24px;
+  margin-top: 24px;
+}

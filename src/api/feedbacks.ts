@@ -5,6 +5,7 @@ interface Feedbacks {
   name: string;
   description: string;
   color: string;
+  stars: number;
 }
 
 export const getFeedbacks = async (): Promise<Feedbacks[]> => {

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { Header } from "../../components/Header";
 import FilterItem from "../../components/FilterItem";
 import css from "./style.module.scss";
@@ -6,30 +9,37 @@ import Card from "../../components/Card";
 import Checkbox from "../../components/Checkbox";
 import Footer from "../../components/Footer";
 import BreadCrumbs from "../../components/BreadCrumbs";
-
 import { getCourses } from "../../api/courses";
-import { useQuery } from "@tanstack/react-query";
 import PaginatedItems from "../../components/PaginatedItems";
 
 const filters = [
   {
-    name: "Все",
+    name: "все",
   },
   {
-    name: "Китайский",
+    name: "китайский",
   },
   {
-    name: "Английский",
+    name: "английский",
   },
   {
-    name: "Немецкий",
+    name: "немецкий",
   },
   {
-    name: "Испанский",
+    name: "испанский",
   },
 ];
 
+interface QueryParams {
+  [key: string]: string;
+}
+
 const Courses = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = Object.fromEntries(new URLSearchParams(location.search));
+  console.log(location.search);
+
   const checkboxLevel = ["Начальный", "Средний", "Высокий"];
   const checkboxPurposes = [
     "Школа",
@@ -40,14 +50,34 @@ const Courses = () => {
     "Путешествие",
   ];
 
-  const [activeFilters, setActiveFilters] = useState<number[]>([]);
+  // const [activeFilters, setActiveFilters] = useState<number[]>([]);
 
   const [choose, setChoose] = useState(
     Object.fromEntries(checkboxLevel.map((title) => [title, false]))
   );
 
+  //Filter
+
+  const changeQueryParams = (newParams: QueryParams): void => {
+    const searchParams = new URLSearchParams(location.search);
+    const updatedQuery: QueryParams = {
+      ...Object.fromEntries(searchParams),
+      ...newParams,
+    };
+
+    for (const property in updatedQuery) {
+      if (updatedQuery[property] === "") {
+        delete updatedQuery[property];
+      }
+    }
+
+    const queryString = new URLSearchParams(updatedQuery).toString();
+
+    navigate(`/courses?${queryString}`);
+  };
+
   const { data: courses = [] } = useQuery({
-    queryKey: ["courses"],
+    queryKey: ["courses", location.search],
     queryFn: getCourses,
   });
 
@@ -59,7 +89,7 @@ const Courses = () => {
         hours={item.hours}
         modules={item.modules}
         price={item.price}
-        width={item.width}
+        width={514}
         color={item.color}
         link={`/courses/${item.id}`} //правка
       />
@@ -73,14 +103,11 @@ const Courses = () => {
     }));
   };
 
-  const onClickFilter = (index: number, toggleAll: boolean) => {
-    setActiveFilters((prevFilters) => {
-      if (toggleAll) {
-        return prevFilters.length === filters.length
-          ? []
-          : filters.map((filter, index) => index);
-      }
-      return [index];
+  const onClickFilter = (index: number) => {
+    const name = filters[index].name;
+
+    changeQueryParams({
+      language: name === "все" ? "" : name,
     });
   };
 
@@ -100,7 +127,10 @@ const Courses = () => {
             <FilterItem
               key={index}
               filter={item}
-              active={activeFilters.includes(index)}
+              active={
+                searchParams.language === item.name ||
+                searchParams.language === undefined
+              }
               onClick={onClickFilter}
               index={index}
             />
