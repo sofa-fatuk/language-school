@@ -8,6 +8,7 @@ import BreadCrumbs from "../../components/BreadCrumbs";
 
 import { getNews } from "../../api/news";
 import { useQuery } from "@tanstack/react-query";
+import PaginatedItems from "../../components/PaginatedItems";
 
 const filters = [
   {
@@ -31,6 +32,29 @@ const Blog = () => {
     queryKey: ["news"],
     queryFn: getNews,
   });
+
+  const renderItem = (item: any) => {
+    return (
+      // <Card
+      //   img={item.img}
+      //   language={item.language}
+      //   level={item.level}
+      //   hours={item.hours}
+      //   modules={item.modules}
+      //   price={item.price}
+      //   width={514}
+      //   color={item.color}
+      //   link={`/courses/${item.id}`} //правка
+      // />
+      <NewsCard
+        title={item.title}
+        date={item.date}
+        description={item.description}
+        type={item.type}
+        link={item.link}
+      />
+    );
+  };
 
   const onClickFilter = (index: number, toggleAll: boolean) => {
     setActiveFilters((prevFilters) => {
@@ -72,6 +96,7 @@ const Blog = () => {
               ))}
             </div>
             <div className={css.news}>
+              {/* <PaginatedItems renderItem={renderItem} items={news} /> */}
               {news.map((item, index) => (
                 <div
                   key={index}

@@ -79,7 +79,8 @@ const modules = [
 const similarCourses = [
   {
     img: "/img/flags/german.svg",
-    title: "Немецкий для начального уровня",
+    language: "немецкий",
+    level: "начального",
     hours: 45,
     modules: 3,
     price: 6520,
@@ -89,7 +90,8 @@ const similarCourses = [
   },
   {
     img: "/img/flags/spain.svg",
-    title: "Испанский для среднего уровня",
+    language: "испанский",
+    level: "начального",
     hours: 45,
     modules: 3,
     price: 6520,
@@ -222,7 +224,8 @@ const CoursePage = () => {
                 {similarCourses.map((card) => (
                   <Card
                     img={card.img}
-                    title={card.title}
+                    language={card.language}
+                    level={card.level}
                     hours={card.hours}
                     modules={card.modules}
                     price={card.price}

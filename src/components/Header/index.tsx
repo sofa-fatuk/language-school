@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./style.module.scss";
 import LinkButton from "../LinkButton";
 import Logo from "../Svgs/Logo";
 import { Link } from "react-router-dom";
+import { Popover } from "react-tiny-popover";
 
 export const Header = () => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false);
+
   return (
     <div className={css.container}>
       <div className={css.header}>
@@ -22,9 +25,30 @@ export const Header = () => {
             <Link to="/blog" className={css.link}>
               Блог
             </Link>
-            <Link to="/" className={css.link}>
-              Еще
-            </Link>
+            <div className={css.link}>
+              <Popover
+                isOpen={isPopoverOpen}
+                positions={["top", "bottom", "left", "right"]} // preferred positions by priority
+                containerStyle={{
+                  backgroundColor: "#FFF",
+                }}
+                content={
+                  <ul className={css.list}>
+                    <Link className={css.item} to="/questions">
+                      FAQ
+                    </Link>
+                    <Link className={css.item} to="/">
+                      Контакты
+                    </Link>
+                    <Link className={css.item} to="/">
+                      Условия оплаты
+                    </Link>
+                  </ul>
+                }
+              >
+                <div onClick={() => setIsPopoverOpen(!isPopoverOpen)}>Еще</div>
+              </Popover>
+            </div>
           </div>
         </div>
         <LinkButton

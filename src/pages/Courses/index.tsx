@@ -50,8 +50,6 @@ const Courses = () => {
     "Путешествие",
   ];
 
-  // const [activeFilters, setActiveFilters] = useState<number[]>([]);
-
   const [choose, setChoose] = useState(
     Object.fromEntries(checkboxLevel.map((title) => [title, false]))
   );
@@ -85,7 +83,8 @@ const Courses = () => {
     return (
       <Card
         img={item.img}
-        title={item.title}
+        language={item.language}
+        level={item.level}
         hours={item.hours}
         modules={item.modules}
         price={item.price}

@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 interface CardProps {
   link: string;
   img: string;
-  title: string;
+  language: string;
+  level: string;
   hours: number;
   modules: number;
   price: number;
@@ -15,7 +16,8 @@ interface CardProps {
 }
 
 const Card = (props: CardProps) => {
-  const { img, link, title, hours, modules, price, width, color } = props;
+  const { img, link, language, level, hours, modules, price, width, color } =
+    props;
 
   return (
     <div
@@ -24,7 +26,9 @@ const Card = (props: CardProps) => {
     >
       <div className={css.container}>
         <img className={css.flagImg} src={img} alt="" />
-        <span className={css.title}>{title}</span>
+        <span className={css.title}>
+          {language} для {level} уровеня
+        </span>
         <div className={css.plan}>
           <span className={css.hours}>
             Длительность: <span className={css.quantity}>{hours} часов</span>

@@ -4,7 +4,9 @@ import { QueryFunctionContext } from "@tanstack/react-query";
 interface Course {
   id: string;
   img: string;
-  title: string;
+  // title: string;
+  language: string;
+  level: string;
   hours: number;
   modules: number;
   price: number;

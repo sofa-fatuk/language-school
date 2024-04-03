@@ -46,3 +46,32 @@
   color: #8e49a0;
   transition: 0.5s;
 }
+
+.list {
+  margin-top: 20px;
+  border: 1px solid #efefff;
+  border-radius: 5px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-bottom: 1px solid #efefff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  transition: 0.5s;
+}
+
+.item:hover {
+  cursor: pointer;
+  color: #8e49a0;
+  transition: 0.5s;
+}
+
+.item:last-child {
+  border-bottom: none;
+}

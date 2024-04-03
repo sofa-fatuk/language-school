@@ -57,7 +57,8 @@ const SliderCards = () => {
             <div className={css.item}>
               <Card
                 img={item.img}
-                title={item.title}
+                language={item.language}
+                level={item.level}
                 hours={item.hours}
                 modules={item.modules}
                 price={item.price}

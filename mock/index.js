@@ -21,8 +21,6 @@ function getCourse(id) {
   return {
     id,
     img: "/img/flags/german.svg",
-    // правка: перенести на фронт
-    title: `${language} для ${level} уровеня`,
     hours: random(10, 300),
     modules: random(3, 15),
     price: random(6250, 52392),
@@ -50,7 +48,8 @@ module.exports = () => ({
     {
       id: 1,
       img: "/img/flags/german.svg",
-      title: "Немецкий для начального уровня",
+      language: "Немецкий",
+      level: "начального",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -60,7 +59,8 @@ module.exports = () => ({
     {
       id: 2,
       img: "/img/flags/spain.svg",
-      title: "Испанский для начального уровня",
+      language: "Испанский",
+      level: "начального",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -70,7 +70,8 @@ module.exports = () => ({
     {
       id: 3,
       img: "/img/flags/china.svg",
-      title: "Китайский для среднего уровня",
+      language: "Китайский",
+      level: "среднего",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -80,7 +81,8 @@ module.exports = () => ({
     {
       id: 4,
       img: "/img/flags/german.svg",
-      title: "Сербский для начального уровня",
+      language: "Английский",
+      level: "начального",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -90,7 +92,8 @@ module.exports = () => ({
     {
       id: 5,
       img: "/img/flags/china.svg",
-      title: "Китайский для среднего уровня",
+      language: "Китайский",
+      level: "среднего",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -100,7 +103,8 @@ module.exports = () => ({
     {
       id: 6,
       img: "/img/flags/spain.svg",
-      title: "Испанский для начального уровня",
+      language: "Испанский",
+      level: "начального",
       hours: 45,
       modules: 3,
       price: 6520,
@@ -149,6 +153,33 @@ module.exports = () => ({
     },
     {
       id: 5,
+      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+      date: "05-06-2022",
+      description:
+        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+      type: "Новость",
+      link: "/blog/blog-page",
+    },
+    {
+      id: 6,
+      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+      date: "05-06-2022",
+      description:
+        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+      type: "Новость",
+      link: "/blog/blog-page",
+    },
+    {
+      id: 7,
+      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+      date: "05-06-2022",
+      description:
+        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+      type: "Новость",
+      link: "/blog/blog-page",
+    },
+    {
+      id: 8,
       title: "Новая система скидок в Language2GO: успейте забрать максимум!",
       date: "05-06-2022",
       description:
