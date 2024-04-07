@@ -4,7 +4,6 @@ import { QueryFunctionContext } from "@tanstack/react-query";
 interface Course {
   id: string;
   img: string;
-  // title: string;
   language: string;
   level: string;
   hours: number;
@@ -12,7 +11,23 @@ interface Course {
   price: number;
   width: number;
   color: string;
+  lessons: number;
+  tasks: number;
+  tests: number;
+  expertHours: number;
 }
+
+export const getCourse = async (context: QueryFunctionContext<string[]>) => {
+  const {
+    queryKey: [, id],
+  } = context;
+  const response = await fetch(`${API_URL}/courses/${id}`);
+  if (!response.ok) {
+    throw new Error(`Network error: ${response.status}`);
+  }
+
+  return response.json();
+};
 
 export const getCourses = async (
   context: QueryFunctionContext<string[]>

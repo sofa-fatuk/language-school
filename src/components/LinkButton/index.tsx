@@ -30,7 +30,4 @@ function Button({ value, style }: IProps) {
   );
 }
 
-// TODO: Primary and Secondary
-//правка style="primary" ругается на то что это не объект, везде исправить
-
 export default LinkButton;

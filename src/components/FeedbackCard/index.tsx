@@ -12,8 +12,8 @@ interface CardProps {
 const FeedbackCard = (props: CardProps) => {
   const { name, feedback, color, stars } = props;
 
-  const filledStars = Math.min(stars, 5); // Calculate number of filled stars, capped at 5
-  const emptyStars = 5 - filledStars; // Calculate number of empty stars
+  const filledStars = Math.min(stars, 5);
+  const emptyStars = 5 - filledStars;
 
   const filledStarElements = Array.from({ length: filledStars }, (_, index) => (
     <StarIcon fill="#8E49A0" />

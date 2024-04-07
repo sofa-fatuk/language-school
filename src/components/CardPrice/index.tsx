@@ -9,13 +9,14 @@ interface IProps {
   tasks: number;
   tests: number;
   expertHours: number;
+  color: string;
 }
 
 const CardPrice = (props: IProps) => {
-  const { img, price, lessons, tasks, tests, expertHours } = props;
+  const { img, price, lessons, tasks, tests, expertHours, color } = props;
 
   return (
-    <div className={css.courseItem}>
+    <div className={css.courseItem} style={{ backgroundColor: `${color}` }}>
       <div className={css.cost}>
         <div className={css.price}>
           <p>Стоимость</p>

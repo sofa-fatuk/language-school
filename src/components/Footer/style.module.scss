@@ -50,7 +50,6 @@ a {
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.32px;
-  // text-decoration: none;
 }
 
 .item + .item {
@@ -89,4 +88,17 @@ a {
   align-items: center;
   gap: 15px;
   cursor: pointer;
+}
+
+@media (max-width: 1440px) {
+  .footer {
+    gap: 120px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .footer {
+    gap: 80px;
+    padding: 77px 20px 100px;
+  }
 }

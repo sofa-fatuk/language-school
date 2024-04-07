@@ -35,17 +35,6 @@ const Blog = () => {
 
   const renderItem = (item: any) => {
     return (
-      // <Card
-      //   img={item.img}
-      //   language={item.language}
-      //   level={item.level}
-      //   hours={item.hours}
-      //   modules={item.modules}
-      //   price={item.price}
-      //   width={514}
-      //   color={item.color}
-      //   link={`/courses/${item.id}`} //правка
-      // />
       <NewsCard
         title={item.title}
         date={item.date}

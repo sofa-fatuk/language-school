@@ -4,11 +4,18 @@ function random(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
 const languages = [
-  "немецкий",
-  "французский",
-  "английский",
-  "китайский",
-  "испанский",
+  {
+    title: "немецкий",
+    img: "/img/flags/german.svg",
+  },
+  {
+    title: "испанский",
+    img: "/img/flags/spain.svg",
+  },
+  {
+    title: "китайский",
+    img: "/img/flags/china.svg",
+  },
 ];
 const levels = ["начального", "среднего", "продвинутого"];
 const colors = ["#D5E9F6", "#FDEDE4", "#EFEFFF"];
@@ -20,13 +27,17 @@ function getCourse(id) {
   const color = colors[random(0, levels.length)];
   return {
     id,
-    img: "/img/flags/german.svg",
+    img: language.img,
     hours: random(10, 300),
     modules: random(3, 15),
     price: random(6250, 52392),
-    language,
+    language: language.title,
     level,
     color: `${color}`,
+    lessons: random(10, 50),
+    tasks: random(120, 500),
+    tests: random(3, 10),
+    expertHours: random(3, 10),
   };
 }
 

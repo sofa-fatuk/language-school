@@ -1,10 +1,8 @@
 import React from "react";
-import css from "./style.module.scss";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 import { Header } from "../../../components/Header";
-import FacebookIcon from "../../../components/Svgs/FacebookIcon";
-import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
-import VkIcon from "../../../components/Svgs/VkIcon";
-import TwitIcon from "../../../components/Svgs/TwitIcon";
 import ModuleItem from "../../../components/ModuleItem";
 import LinkButton from "../../../components/LinkButton";
 import FeedbackCard from "../../../components/FeedbackCard";
@@ -14,8 +12,15 @@ import RegistrationBlock from "../../../components/RegistrationBlock";
 import Footer from "../../../components/Footer";
 import TopStudents from "../../../components/TopStudents";
 import BreadCrumbs from "../../../components/BreadCrumbs";
-import { useQuery } from "@tanstack/react-query";
 import { getFeedbacks } from "../../../api/feedbacks";
+import { getCourse } from "../../../api/courses";
+import useWindowSize from "../../../hooks/useWindowSize";
+
+import FacebookIcon from "../../../components/Svgs/FacebookIcon";
+import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
+import VkIcon from "../../../components/Svgs/VkIcon";
+import TwitIcon from "../../../components/Svgs/TwitIcon";
+import css from "./style.module.scss";
 
 const modules = [
   {
@@ -101,22 +106,40 @@ const similarCourses = [
   },
 ];
 
-const courseCost = [
-  {
-    img: "/img/flags/german.svg",
-    price: 6520,
-    lessons: 40,
-    tasks: 396,
-    tests: 9,
-    expertHours: 4,
-  },
-];
+interface CoursePageProps {
+  id: string;
+}
 
-const CoursePage = () => {
+const CoursePage = ({ id }: CoursePageProps) => {
+  const size = useWindowSize();
+
   const { data: feedbacks = [] } = useQuery({
     queryKey: ["feedbacks"],
     queryFn: getFeedbacks,
   });
+
+  const { data: course } = useQuery({
+    queryKey: ["course", id],
+    queryFn: getCourse,
+  });
+
+  console.log(course);
+
+  if (!course) {
+    return <div>Такого продукта нет</div>;
+  }
+
+  const {
+    language,
+    level,
+    img,
+    price,
+    lessons,
+    tasks,
+    tests,
+    expertHours,
+    color,
+  } = course;
 
   return (
     <>
@@ -133,7 +156,7 @@ const CoursePage = () => {
           <div className={css.infoBlock}>
             <div className={css.wrapper}>
               <h2 className={css.name}>
-                Немецкий <br /> для начинающих
+                {language} <br /> для {level} уровня
               </h2>
               <h3 className={css.title}>О курсе</h3>
               <div className={css.list}>
@@ -238,19 +261,20 @@ const CoursePage = () => {
             </div>
           </div>
           <div className={css.moreInformation}>
-            {courseCost.map((card) => (
-              <CardPrice
-                img={card.img}
-                price={card.price}
-                lessons={card.lessons}
-                tasks={card.tasks}
-                tests={card.tests}
-                expertHours={card.expertHours}
-              />
-            ))}
+            <CardPrice
+              img={img}
+              price={price}
+              lessons={lessons}
+              tasks={tasks}
+              tests={tests}
+              expertHours={expertHours}
+              color={color}
+            />
+            {/* {size.width > 1000 ? ( */}
             <div className={css.rating}>
               <TopStudents />
             </div>
+            {/* ) : null} */}
           </div>
         </div>
         <div className={css.registration}>
@@ -262,4 +286,12 @@ const CoursePage = () => {
   );
 };
 
-export default CoursePage;
+const Wrapper = () => {
+  const params = useParams();
+  if (!params.id) {
+    return null;
+  }
+  return <CoursePage id={params.id} />;
+};
+
+export default Wrapper;

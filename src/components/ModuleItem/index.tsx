@@ -28,8 +28,6 @@ const ModuleItem = (props: Iprops) => {
 
   const descriptionHeight = elementHeight || "auto";
 
-  console.log(elementHeight);
-
   return (
     <>
       <div className={css.item} onClick={updateBlock}>

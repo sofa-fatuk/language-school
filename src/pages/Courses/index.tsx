@@ -38,7 +38,6 @@ const Courses = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = Object.fromEntries(new URLSearchParams(location.search));
-  console.log(location.search);
 
   const checkboxLevel = ["Начальный", "Средний", "Высокий"];
   const checkboxPurposes = [

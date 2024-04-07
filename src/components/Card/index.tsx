@@ -27,7 +27,7 @@ const Card = (props: CardProps) => {
       <div className={css.container}>
         <img className={css.flagImg} src={img} alt="" />
         <span className={css.title}>
-          {language} для {level} уровеня
+          {language} для {level} уровня
         </span>
         <div className={css.plan}>
           <span className={css.hours}>

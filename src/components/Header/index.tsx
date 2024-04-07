@@ -28,7 +28,7 @@ export const Header = () => {
             <div className={css.link}>
               <Popover
                 isOpen={isPopoverOpen}
-                positions={["top", "bottom", "left", "right"]} // preferred positions by priority
+                positions={["top", "bottom", "left", "right"]}
                 containerStyle={{
                   backgroundColor: "#FFF",
                 }}

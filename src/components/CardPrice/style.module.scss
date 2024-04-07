@@ -5,7 +5,7 @@
   gap: 16px;
   padding: 40px;
   border-radius: 20px;
-  background: var(--Purple-secondry, #efefff);
+  // background: var(--Purple-secondry, #efefff);
 }
 
 .cost {
@@ -52,4 +52,12 @@
 
 .info + .info {
   margin-bottom: 24px;
+}
+
+@media (max-width: 1220px) {
+  .courseItem {
+    min-width: 360px;
+    gap: 10px;
+    padding: 40px;
+  }
 }
