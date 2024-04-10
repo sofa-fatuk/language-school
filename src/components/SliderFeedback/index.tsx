@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
-import css from "./style.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import SwiperInstance from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-
 import { useQuery } from "@tanstack/react-query";
 import FeedbackCard from "../FeedbackCard";
 import { getFeedbacks } from "../../api/feedbacks";
+import SwiperCore from "swiper";
+import SwiperInstance from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import css from "./style.module.scss";
 
 SwiperCore.use([]);
 

@@ -1,22 +1,22 @@
 import React, { useRef, useState } from "react";
-import css from "./style.module.scss";
-import Card from "../Card";
+import { useQuery } from "@tanstack/react-query";
+import { getCoursesForSlider } from "../../api/courses";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import SwiperInstance from "swiper";
+import Card from "../Card";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { useQuery } from "@tanstack/react-query";
-import { getRecommendedCourses } from "../../api/courses";
+import css from "./style.module.scss";
 
 SwiperCore.use([]);
 
 const SliderCards = () => {
   const { data: courses = [] } = useQuery({
     queryKey: ["courses"],
-    queryFn: getRecommendedCourses,
+    queryFn: getCoursesForSlider,
   });
 
   const swiper = useRef<SwiperInstance | null>(null);
@@ -55,7 +55,7 @@ const SliderCards = () => {
         {courses.map((item) => (
           <SwiperSlide key={item.id}>
             <div className={css.item}>
-              <Card
+              {/* <Card
                 img={item.img}
                 language={item.language}
                 level={item.level}
@@ -65,7 +65,8 @@ const SliderCards = () => {
                 width={453}
                 color={item.color}
                 link={`/courses/${item.id}`}
-              />
+              /> */}
+              <Card item={item} width={514} link={`/courses/${item.id}`} />
             </div>
           </SwiperSlide>
         ))}

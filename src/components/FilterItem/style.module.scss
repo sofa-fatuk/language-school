@@ -13,6 +13,10 @@
   white-space: nowrap;
 }
 
+.filter:first-letter {
+  text-transform: uppercase;
+}
+
 .active {
   background-color: #78258d;
   color: #ffffff;

@@ -1,4 +1,5 @@
 import { API_URL } from "./constants";
+import { QueryFunctionContext } from "@tanstack/react-query";
 
 interface News {
   id: string;
@@ -7,10 +8,13 @@ interface News {
   description: string;
   type: string;
   link: string;
+  index: number;
 }
 
-export const getNews = async (): Promise<News[]> => {
-  const url = `${API_URL}/news`;
+export const getNews = async (
+  context: QueryFunctionContext<string[]>
+): Promise<News[]> => {
+  const url = `${API_URL}/news${context.queryKey[1]}`;
 
   const response = await fetch(url);
 

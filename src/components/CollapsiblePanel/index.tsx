@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 
-import css from "./style.module.scss";
 import OpenIcon from "../Svgs/OpenIcon";
 import CloseIcon from "../Svgs/CloseIcon";
+
+import css from "./style.module.scss";
 
 interface Iprops {
   title: string;

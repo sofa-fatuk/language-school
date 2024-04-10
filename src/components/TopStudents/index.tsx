@@ -1,6 +1,7 @@
 import React from "react";
-import css from "./style.module.scss";
 import { Link } from "react-router-dom";
+
+import css from "./style.module.scss";
 
 const students = [
   {

@@ -1,11 +1,13 @@
 import React from "react";
-import css from "./style.module.scss";
+import { Link } from "react-router-dom";
+
 import FacebookIcon from "../Svgs/FacebookIcon";
 import YouTubeIcon from "../Svgs/YouTubeIcon";
 import VkIcon from "../Svgs/VkIcon";
 import TwitIcon from "../Svgs/TwitIcon";
 import Logo from "../Svgs/Logo";
-import { Link } from "react-router-dom";
+
+import css from "./style.module.scss";
 
 const Footer = () => {
   return (
@@ -39,7 +41,7 @@ const Footer = () => {
             </li>
             <li className={css.item}>Отзывы</li>
             <li className={css.item}>
-              <Link to="/blog">Новости</Link>
+              <Link to="/news">Новости</Link>
             </li>
             <li className={css.item}>
               <Link to="/questions">Частые вопросы</Link>

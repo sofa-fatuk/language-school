@@ -1,16 +1,18 @@
 import React from "react";
-import css from "./style.module.scss";
 import { Header } from "../../../components/Header";
-import FacebookIcon from "../../../components/Svgs/FacebookIcon";
-import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
-import TwitIcon from "../../../components/Svgs/TwitIcon";
-import VkIcon from "../../../components/Svgs/VkIcon";
+import { useQuery } from "@tanstack/react-query";
+import { getNews } from "../../../api/news";
 import LinkButton from "../../../components/LinkButton";
 import NewsCard from "../../../components/NewsCard";
 import Footer from "../../../components/Footer";
 import BreadCrumbs from "../../../components/BreadCrumbs";
-import { useQuery } from "@tanstack/react-query";
-import { getNews } from "../../../api/news";
+
+import FacebookIcon from "../../../components/Svgs/FacebookIcon";
+import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
+import TwitIcon from "../../../components/Svgs/TwitIcon";
+import VkIcon from "../../../components/Svgs/VkIcon";
+
+import css from "./style.module.scss";
 
 const BlogPage = () => {
   const { data: news = [] } = useQuery({
@@ -25,8 +27,8 @@ const BlogPage = () => {
         <BreadCrumbs
           items={[
             { path: "/", breadcrumb: "Главная" },
-            { path: "/blog", breadcrumb: "Блог" },
-            { path: "/blog/blog-page", breadcrumb: "Статья подробно" }, //правка id
+            { path: "/news", breadcrumb: "Блог" },
+            { path: "/news/blog-page", breadcrumb: "Статья подробно" }, //правка id
           ]}
         />
         <div className={css.wrapper}>

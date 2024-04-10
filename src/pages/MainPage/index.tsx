@@ -1,19 +1,21 @@
 import React from "react";
-import css from "./style.module.scss";
 import { Header } from "../../components/Header";
 import LinkButton from "../../components/LinkButton";
 import SliderCards from "../../components/SliderCards";
-import PresentationIcon from "../../components/Svgs/PresentationIcon";
-import MapMarkerIcon from "../../components/Svgs/MapMarkerIcon";
-import CommentIcon from "../../components/Svgs/CommentIcon";
-import CapIcon from "../../components/Svgs/CapIcon";
-import BriefcaseIcon from "../../components/Svgs/BriefcaseIcon";
-import ShipIcon from "../../components/Svgs/ShipIcon";
 import RegistrationBlock from "../../components/RegistrationBlock";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
 import SliderFeedback from "../../components/SliderFeedback";
 import SuggestedNews from "../../components/SuggestedNews";
+
+import PresentationIcon from "../../components/Svgs/PresentationIcon";
+import MapMarkerIcon from "../../components/Svgs/MapMarkerIcon";
+import CommentIcon from "../../components/Svgs/CommentIcon";
+import BriefcaseIcon from "../../components/Svgs/BriefcaseIcon";
+import ShipIcon from "../../components/Svgs/ShipIcon";
+import CapIcon from "../../components/Svgs/CapIcon";
+
+import css from "./style.module.scss";
 
 const MainPage = () => {
   return (
@@ -212,7 +214,7 @@ const MainPage = () => {
         <div className={css.blockNews}>
           <div className={css.container}>
             <h2 className={css.title}>Полезные новости и статьи</h2>
-            <LinkButton value="Все новости" link="/blog" />
+            <LinkButton value="Все новости" link="/news" />
           </div>
           <SuggestedNews />
         </div>

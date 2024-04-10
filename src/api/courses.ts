@@ -32,7 +32,7 @@ export const getCourse = async (context: QueryFunctionContext<string[]>) => {
 export const getCourses = async (
   context: QueryFunctionContext<string[]>
 ): Promise<Course[]> => {
-  const url = `${API_URL}/courses${context.queryKey[1]}`;
+  const url = `${API_URL}/courses${context.queryKey[1]}&_limit=6`;
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -41,8 +41,18 @@ export const getCourses = async (
   return response.json();
 };
 
-export const getRecommendedCourses = async (): Promise<Course[]> => {
-  const url = `${API_URL}/coursesRecommended`;
+export const getCoursesForSlider = async (): Promise<Course[]> => {
+  const url = `${API_URL}/coursesForSlider`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Network error: ${response.status}`);
+  }
+  return response.json();
+};
+
+export const getSimilarCourses = async (): Promise<Course[]> => {
+  const url = `${API_URL}/similarCourses`;
   const response = await fetch(url);
 
   if (!response.ok) {

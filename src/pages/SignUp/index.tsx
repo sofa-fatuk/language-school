@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import css from "./style.module.scss";
-import Logo from "../../components/Svgs/Logo";
 import PhoneInput from "../../components/PhoneInput";
 import LinkButton from "../../components/LinkButton";
 import SocialButton from "../../components/SocialButton";
+
+import Logo from "../../components/Svgs/Logo";
 import VkSignUp from "../../components/Svgs/VkSignUp";
 import YandexIcon from "../../components/Svgs/YandexIcon";
 import GosuslugiIcon from "../../components/Svgs/GosuslugiIcon";
+
+import css from "./style.module.scss";
 
 const SignUp = () => {
   const [telephone, setTelephone] = useState("");

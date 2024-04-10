@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import css from "./style.module.scss";
 import { Header } from "../../components/Header";
+import { getNews } from "../../api/news";
+import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
 import FilterItem from "../../components/FilterItem";
 import NewsCard from "../../components/NewsCard";
 import Footer from "../../components/Footer";
 import BreadCrumbs from "../../components/BreadCrumbs";
-
-import { getNews } from "../../api/news";
-import { useQuery } from "@tanstack/react-query";
 import PaginatedItems from "../../components/PaginatedItems";
+
+import css from "./style.module.scss";
 
 const filters = [
   {
@@ -26,22 +27,35 @@ const filters = [
 ];
 
 const Blog = () => {
+  const location = useLocation();
+
   const [activeFilters, setActiveFilters] = useState<number[]>([]);
 
   const { data: news = [] } = useQuery({
-    queryKey: ["news"],
+    queryKey: ["news", location.search],
     queryFn: getNews,
   });
 
+  console.log();
+
   const renderItem = (item: any) => {
     return (
-      <NewsCard
-        title={item.title}
-        date={item.date}
-        description={item.description}
-        type={item.type}
-        link={item.link}
-      />
+      <div
+        key={item.index}
+        className={`${
+          item.index === 0 || item.index % 5 === 0
+            ? css.fullWidth
+            : css.smallWidth
+        }`}
+      >
+        <NewsCard
+          title={item.title}
+          date={item.date}
+          description={item.description}
+          type={item.type}
+          link={`/news/${item.id}`}
+        />
+      </div>
     );
   };
 
@@ -63,7 +77,7 @@ const Blog = () => {
         <BreadCrumbs
           items={[
             { path: "/", breadcrumb: "Главная" },
-            { path: "/blog", breadcrumb: "Блог" },
+            { path: "/news", breadcrumb: "Блог" },
           ]}
         />
         <div className={css.wrapper}>
@@ -84,23 +98,9 @@ const Blog = () => {
                 />
               ))}
             </div>
-            <div className={css.news}>
-              {/* <PaginatedItems renderItem={renderItem} items={news} /> */}
-              {news.map((item, index) => (
-                <div
-                  key={index}
-                  className={`${index === 0 ? css.fullWidth : css.smallWidth}`}
-                >
-                  <NewsCard
-                    title={item.title}
-                    date={item.date}
-                    description={item.description}
-                    type={item.type}
-                    link={item.link}
-                  />
-                </div>
-              ))}
-            </div>
+            {/* <div className={css.news}>
+              <PaginatedItems renderItem={renderItem} items={news} />
+            </div> */}
           </div>
           <div className={css.image} />
         </div>

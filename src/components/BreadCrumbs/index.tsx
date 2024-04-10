@@ -1,9 +1,10 @@
 import { Fragment, FC } from "react";
 import { Link } from "react-router-dom";
-import css from "./style.module.scss";
 
-import cn from "classnames";
 import ArrowBreadCrumbs from "../Svgs/ArrowBreadCrumbs";
+
+import css from "./style.module.scss";
+import cn from "classnames";
 
 interface BreadcrumbItem {
   path: string;

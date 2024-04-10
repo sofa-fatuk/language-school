@@ -1,23 +1,29 @@
 import React from "react";
-import css from "./style.module.scss";
-import ArrowRight from "../Svgs/ArrowRight";
 import { Link } from "react-router-dom";
 
-interface CardProps {
-  link: string;
+import ArrowRight from "../Svgs/ArrowRight";
+
+import css from "./style.module.scss";
+
+interface Course {
   img: string;
   language: string;
   level: string;
   hours: number;
   modules: number;
   price: number;
-  width?: number;
   color: string;
 }
 
+interface CardProps {
+  item: Course;
+  width?: number;
+  link: string;
+}
+
 const Card = (props: CardProps) => {
-  const { img, link, language, level, hours, modules, price, width, color } =
-    props;
+  const { width, item, link } = props;
+  const { img, language, level, hours, modules, price, color } = item;
 
   return (
     <div

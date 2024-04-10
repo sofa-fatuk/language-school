@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import css from "./style.module.scss";
-import LinkButton from "../LinkButton";
-import Logo from "../Svgs/Logo";
-import { Link } from "react-router-dom";
 import { Popover } from "react-tiny-popover";
+import { Link } from "react-router-dom";
+import LinkButton from "../LinkButton";
+
+import Logo from "../Svgs/Logo";
+
+import css from "./style.module.scss";
 
 export const Header = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false);
@@ -22,7 +24,7 @@ export const Header = () => {
             <Link to="/about" className={css.link}>
               О нас
             </Link>
-            <Link to="/blog" className={css.link}>
+            <Link to="/news" className={css.link}>
               Блог
             </Link>
             <div className={css.link}>

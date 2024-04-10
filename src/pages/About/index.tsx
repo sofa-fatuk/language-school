@@ -1,11 +1,11 @@
 import React from "react";
 import { Header } from "../../components/Header";
-
-import css from "./style.module.scss";
-import cn from "classnames";
 import RegistrationBlock from "../../components/RegistrationBlock";
 import Footer from "../../components/Footer";
 import BreadCrumbs from "../../components/BreadCrumbs";
+
+import css from "./style.module.scss";
+import cn from "classnames";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
         <BreadCrumbs
           items={[
             { path: "/", breadcrumb: "Главная" },
-            { path: "/blog", breadcrumb: "О нас" },
+            { path: "/news", breadcrumb: "О нас" },
           ]}
         />
         <h2 className={css.title}>О нас</h2>

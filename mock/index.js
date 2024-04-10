@@ -1,8 +1,23 @@
 function random(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
+
+function randomDate() {
+  const year = Math.floor(Math.random() * (2024 - 2000 + 1)) + 2000;
+
+  const month = Math.floor(Math.random() * 12);
+
+  const day =
+    Math.floor(Math.random() * new Date(year, month + 1, 0).getDate()) + 1;
+
+  const formattedMonth = (month + 1).toString().padStart(2, "0");
+  const formattedDay = day.toString().padStart(2, "0");
+
+  return `${formattedMonth}-${formattedDay}-${year}`;
+}
+
 const languages = [
   {
     title: "немецкий",
@@ -17,9 +32,31 @@ const languages = [
     img: "/img/flags/china.svg",
   },
 ];
+
+const articles = [
+  {
+    title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+    type: "Новость",
+  },
+  {
+    title: "Новая система скидок в Language2GO: успейте забрать максимум!",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+    type: "Статья",
+  },
+  {
+    title:
+      "“Интерактивная платформа: как это работает?” Отвечает основатель проекта...",
+    description:
+      "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
+    type: "Интересное",
+  },
+];
+
 const levels = ["начального", "среднего", "продвинутого"];
 const colors = ["#D5E9F6", "#FDEDE4", "#EFEFFF"];
-// const type = ["Новость", "Интересное", "Статья"];
 
 function getCourse(id) {
   const language = languages[random(0, languages.length)];
@@ -41,21 +78,20 @@ function getCourse(id) {
   };
 }
 
-// function getNews(id) {
-//   return {
-//     id,
-//     title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-//     date: "05-06-2022",
-//     description:
-//         "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-//       type: "Новость",
-//       link: "/blog/blog-page",
-//   };
-// }
+function getArticle(id) {
+  const article = articles[random(0, articles.length)];
+  return {
+    id,
+    title: article.title,
+    date: randomDate,
+    description: article.description,
+    type: article.type,
+  };
+}
 
 module.exports = () => ({
   courses: Array.from({ length: 1000 }, (_, i) => getCourse(i)),
-  coursesRecommended: [
+  coursesForSlider: [
     {
       id: 1,
       img: "/img/flags/german.svg",
@@ -123,82 +159,31 @@ module.exports = () => ({
       color: "#FDEDE4",
     },
   ],
-  news: [
+  similarCourses: [
     {
       id: 1,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Новость",
-      link: "/blog/blog-page",
+      img: "/img/flags/german.svg",
+      language: "Немецкий",
+      level: "начального",
+      hours: 45,
+      modules: 3,
+      price: 6520,
+      width: 514,
+      color: "#D5E9F6",
     },
     {
       id: 2,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Статья",
-      link: "/blog/blog-page",
-    },
-    {
-      id: 3,
-      title:
-        "“Интерактивная платформа: как это работает?” Отвечает основатель проекта...",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Интересное",
-      link: "/blog/blog-page",
-    },
-    {
-      id: 4,
-      title:
-        "Новое слово в изучении иностранных языков: интерактивная платформа ...",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Статья",
-      link: "/",
-    },
-    {
-      id: 5,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Новость",
-      link: "/blog/blog-page",
-    },
-    {
-      id: 6,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Новость",
-      link: "/blog/blog-page",
-    },
-    {
-      id: 7,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Новость",
-      link: "/blog/blog-page",
-    },
-    {
-      id: 8,
-      title: "Новая система скидок в Language2GO: успейте забрать максимум!",
-      date: "05-06-2022",
-      description:
-        "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
-      type: "Новость",
-      link: "/blog/blog-page",
+      img: "/img/flags/spain.svg",
+      language: "Испанский",
+      level: "начального",
+      hours: 45,
+      modules: 3,
+      price: 6520,
+      width: 514,
+      color: "#FDEDE4",
     },
   ],
+  news: Array.from({ length: 1000 }, (_, i) => getArticle(i)),
   newsRecommended: [
     {
       id: 1,
@@ -207,7 +192,7 @@ module.exports = () => ({
       description:
         "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
       type: "Новость",
-      link: "/blog/blog-page",
+      link: "/news/blog-page",
     },
     {
       id: 2,
@@ -216,7 +201,7 @@ module.exports = () => ({
       description:
         "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
       type: "Статья",
-      link: "/blog/blog-page",
+      link: "/news/blog-page",
     },
     {
       id: 3,
@@ -226,7 +211,7 @@ module.exports = () => ({
       description:
         "Для многих стоимость изучения иностранного языка является важным критерием при выборе системы обучения.",
       type: "Интересное",
-      link: "/blog/blog-page",
+      link: "/news/blog-page",
     },
   ],
   feedbacks: [

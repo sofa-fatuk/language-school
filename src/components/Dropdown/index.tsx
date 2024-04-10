@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import css from "./style.module.scss";
-import cn from "classnames";
 
 import ArrowDown from "../Svgs/ArrowDown";
+
+import css from "./style.module.scss";
+import cn from "classnames";
 
 interface Iprops {
   title?: string;

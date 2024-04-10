@@ -1,6 +1,8 @@
 import React from "react";
-import css from "./style.module.scss";
+
 import StarIcon from "../Svgs/StarIcon";
+
+import css from "./style.module.scss";
 
 interface CardProps {
   name: string;

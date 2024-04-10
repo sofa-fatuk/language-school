@@ -1,9 +1,9 @@
 import React from "react";
-import css from "./style.module.scss";
-import NewsCard from "../NewsCard";
-
 import { getRecommendedNews } from "../../api/news";
 import { useQuery } from "@tanstack/react-query";
+import NewsCard from "../NewsCard";
+
+import css from "./style.module.scss";
 
 const SuggestedNews = () => {
   const { data: news = [] } = useQuery({

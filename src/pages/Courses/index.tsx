@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-
 import { Header } from "../../components/Header";
+import { getCourses } from "../../api/courses";
 import FilterItem from "../../components/FilterItem";
-import css from "./style.module.scss";
 import Card from "../../components/Card";
 import Checkbox from "../../components/Checkbox";
 import Footer from "../../components/Footer";
 import BreadCrumbs from "../../components/BreadCrumbs";
-import { getCourses } from "../../api/courses";
 import PaginatedItems from "../../components/PaginatedItems";
+
+import css from "./style.module.scss";
 
 const filters = [
   {
@@ -73,25 +73,22 @@ const Courses = () => {
     navigate(`/courses?${queryString}`);
   };
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    if (!searchParams.has("_page")) {
+      changeQueryParams({
+        _page: "0",
+      });
+    }
+  }, []);
+
   const { data: courses = [] } = useQuery({
     queryKey: ["courses", location.search],
     queryFn: getCourses,
   });
 
   const renderItem = (item: any) => {
-    return (
-      <Card
-        img={item.img}
-        language={item.language}
-        level={item.level}
-        hours={item.hours}
-        modules={item.modules}
-        price={item.price}
-        width={514}
-        color={item.color}
-        link={`/courses/${item.id}`} //правка
-      />
-    );
+    return <Card item={item} width={514} link={`/courses/${item.id}`} />;
   };
 
   const onCheck = (title: string) => {
@@ -136,7 +133,12 @@ const Courses = () => {
         </div>
         <div className={css.courses}>
           <div className={css.cards}>
-            <PaginatedItems renderItem={renderItem} items={courses} />
+            <PaginatedItems
+              renderItem={renderItem}
+              items={courses}
+              changeQueryParams={changeQueryParams}
+              _page={searchParams._page || "0"}
+            />
           </div>
           <div className={css.morefilters}>
             <div className={css.level}>

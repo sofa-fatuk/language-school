@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-
 import { Header } from "../../../components/Header";
+import { getFeedbacks } from "../../../api/feedbacks";
+import { getCourse, getSimilarCourses } from "../../../api/courses";
 import ModuleItem from "../../../components/ModuleItem";
 import LinkButton from "../../../components/LinkButton";
 import FeedbackCard from "../../../components/FeedbackCard";
@@ -12,14 +13,13 @@ import RegistrationBlock from "../../../components/RegistrationBlock";
 import Footer from "../../../components/Footer";
 import TopStudents from "../../../components/TopStudents";
 import BreadCrumbs from "../../../components/BreadCrumbs";
-import { getFeedbacks } from "../../../api/feedbacks";
-import { getCourse } from "../../../api/courses";
 import useWindowSize from "../../../hooks/useWindowSize";
 
 import FacebookIcon from "../../../components/Svgs/FacebookIcon";
 import YouTubeIcon from "../../../components/Svgs/YouTubeIcon";
 import VkIcon from "../../../components/Svgs/VkIcon";
 import TwitIcon from "../../../components/Svgs/TwitIcon";
+
 import css from "./style.module.scss";
 
 const modules = [
@@ -81,30 +81,30 @@ const modules = [
   },
 ];
 
-const similarCourses = [
-  {
-    img: "/img/flags/german.svg",
-    language: "немецкий",
-    level: "начального",
-    hours: 45,
-    modules: 3,
-    price: 6520,
-    width: 458,
-    color: "#D5E9F6",
-    link: "/courses/course-page",
-  },
-  {
-    img: "/img/flags/spain.svg",
-    language: "испанский",
-    level: "начального",
-    hours: 45,
-    modules: 3,
-    price: 6520,
-    width: 458,
-    color: "#FDEDE4",
-    link: "/courses/course-page",
-  },
-];
+// const similarCourses = [
+//   {
+//     img: "/img/flags/german.svg",
+//     language: "немецкий",
+//     level: "начального",
+//     hours: 45,
+//     modules: 3,
+//     price: 6520,
+//     width: 458,
+//     color: "#D5E9F6",
+//     link: "/courses/course-page",
+//   },
+//   {
+//     img: "/img/flags/spain.svg",
+//     language: "испанский",
+//     level: "начального",
+//     hours: 45,
+//     modules: 3,
+//     price: 6520,
+//     width: 458,
+//     color: "#FDEDE4",
+//     link: "/courses/course-page",
+//   },
+// ];
 
 interface CoursePageProps {
   id: string;
@@ -118,12 +118,19 @@ const CoursePage = ({ id }: CoursePageProps) => {
     queryFn: getFeedbacks,
   });
 
-  const { data: course } = useQuery({
+  const { data: course, isLoading } = useQuery({
     queryKey: ["course", id],
     queryFn: getCourse,
   });
 
-  console.log(course);
+  const { data: similarCourses = [] } = useQuery({
+    queryKey: ["similarCourses"],
+    queryFn: getSimilarCourses,
+  });
+
+  if (isLoading) {
+    return null;
+  }
 
   if (!course) {
     return <div>Такого продукта нет</div>;
@@ -245,17 +252,7 @@ const CoursePage = ({ id }: CoursePageProps) => {
               <h3 className={css.title}>Похожие курсы</h3>
               <div className={css.similarCourses}>
                 {similarCourses.map((card) => (
-                  <Card
-                    img={card.img}
-                    language={card.language}
-                    level={card.level}
-                    hours={card.hours}
-                    modules={card.modules}
-                    price={card.price}
-                    width={457.5}
-                    color={card.color}
-                    link={card.link}
-                  />
+                  <Card item={card} width={514} link={`/courses/${card.id}`} />
                 ))}
               </div>
             </div>

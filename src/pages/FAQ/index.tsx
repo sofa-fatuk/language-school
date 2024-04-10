@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import css from "./style.module.scss";
 import { Header } from "../../components/Header";
 import FilterItem from "../../components/FilterItem";
 import CollapsiblePanel from "../../components/CollapsiblePanel";
 import Footer from "../../components/Footer";
 import LinkButton from "../../components/LinkButton";
 import BreadCrumbs from "../../components/BreadCrumbs";
+
+import css from "./style.module.scss";
 
 const filters = [
   {

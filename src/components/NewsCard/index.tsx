@@ -1,7 +1,9 @@
 import React from "react";
-import css from "./style.module.scss";
-import ArrowRight from "../Svgs/ArrowRight";
 import { Link } from "react-router-dom";
+
+import ArrowRight from "../Svgs/ArrowRight";
+
+import css from "./style.module.scss";
 
 interface CardProps {
   title: string;

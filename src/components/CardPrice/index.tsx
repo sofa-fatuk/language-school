@@ -1,6 +1,7 @@
 import React from "react";
-import css from "./style.module.scss";
 import PurpleButton from "../PurpleButton";
+
+import css from "./style.module.scss";
 
 interface IProps {
   img: string;

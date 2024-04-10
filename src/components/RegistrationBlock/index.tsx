@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import css from "./style.module.scss";
 import PhoneInput from "../PhoneInput";
 import LinkButton from "../LinkButton";
 import AgreementCheckbox from "../AgreementCheckbox";
+
+import css from "./style.module.scss";
 
 const RegistrationBlock = () => {
   const [telephone, setTelephone] = useState("");

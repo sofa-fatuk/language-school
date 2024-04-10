@@ -1,8 +1,10 @@
 import React, { Fragment, memo, useState } from "react";
-import css from "./style.module.scss";
 import ReactPaginate from "react-paginate";
+
 import ArrowRightSlider from "../Svgs/ArrowRightSlider";
 import LeftRightSlider from "../Svgs/LeftRightSlider";
+
+import css from "./style.module.scss";
 
 interface Item {
   id: string;
@@ -13,6 +15,9 @@ export interface IProps {
   items: Item[];
   renderItem: (item: Item) => React.ReactNode;
   gap?: number;
+  total?: number;
+  changeQueryParams?: any; //правка
+  _page: string;
 }
 
 const PaginatedItems = ({
@@ -20,27 +25,28 @@ const PaginatedItems = ({
   items,
   renderItem,
   gap = 40,
+  changeQueryParams,
+  total = 1000,
+  _page,
 }: IProps) => {
-  const [itemOffset, setItemOffset] = useState(0);
-
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
-
+  const pageCount = Math.ceil(total / itemsPerPage);
   const handlePageClick = ({ selected }: { selected: number }) => {
-    const newOffset = (selected * itemsPerPage) % items.length;
-    setItemOffset(newOffset);
+    changeQueryParams({
+      _page: selected + 1,
+    });
   };
 
   return (
     <>
       <div className={css.items} style={{ gap }}>
-        {currentItems.map((item, index) => (
+        {items.map((item, index) => (
           <Fragment key={item.id || index}>{renderItem(item)}</Fragment>
         ))}
       </div>
-      {items.length > itemsPerPage && (
+      {total > itemsPerPage && (
         <ReactPaginate
+          // Передать сюда страницу из поисковой строки
+          forcePage={parseInt(_page) - 1}
           className={css.numbers}
           pageCount={pageCount}
           pageRangeDisplayed={3}
